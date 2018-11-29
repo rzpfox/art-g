@@ -1,10 +1,10 @@
   <div class="container">
-    <%  @galleries.each_slice(12) do |cocktail|%>
+    <%  @galleries.each_slice(12) do |gallery|%>
       <div class="row">
         <% @galleries.each do |gallery| %>
           <%= link_to gallery_path(gallery) do %>
             <div class="col-xs-12, col-sm-6, col-md-4">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://allinnigeria.com/wp-content/uploads/2016/08/Red-Door-Gallery.jpg');">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path gallery.photo %>');">
                 <div class="card-category">
                   <%= gallery.name.capitalize %>
                 </div>

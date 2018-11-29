@@ -7,6 +7,8 @@
         <%= f.input :artist_name, class: "address-box" %>
         <%= f.input :status, class: "phone-number-box" %>
         <%= f.input :value, class: "value-box" %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
         <%= f.submit "Add Painting", class: "btn btn-primary" %>
       <% end %>
     </div>

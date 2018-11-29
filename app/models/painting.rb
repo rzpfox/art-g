@@ -5,4 +5,5 @@ class Painting < ApplicationRecord
   validates :status, presence: true
   validates :value, presence: true
   belongs_to :gallery
+  mount_uploader :photo, PhotoUploader
 end

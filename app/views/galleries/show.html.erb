@@ -1,9 +1,16 @@
   <div class = "gallery_name"><h1><%= @gallery.name.capitalize %></h1></div>
+    <div><%= cl_image_tag @gallery.photo, height: 100, width: 100, crop: :fill %>
+  </div>
   <i class="far fa-address-card"></i><div class = "gallery_contact_name"><p><%= @gallery.contact_name %></p></div>
   <div class = "gallery_address"><p><%= @gallery.address %></p></div>
-  <div class = "gallery_phone_number"><p><i class="fas fa-phone">  <%= @gallery.phone_number %></i></p></div>
-  <div class="btn btn-primary btn-lg"><p><%= link_to "Add Painting", new_gallery_painting_path(@gallery) %>
-    </p></div>
+  <div class = "gallery_phone_number">
+    <p><i class="fas fa-phone">  <%= @gallery.phone_number %></i></p>
+  </div>
+  <div class="btn btn-primary btn-lg">
+    <p>
+      <%= link_to "Add Painting", new_gallery_painting_path(@gallery) %>
+    </p>
+  </div>
 
  <div class="container">
     <%  @gallery.paintings.each_slice(12) do |gallery|%>
@@ -11,7 +18,7 @@
         <% @gallery.paintings.each do |painting| %>
           <%= link_to painting_path(painting) do %>
             <div class="col-xs-12, col-sm-6, col-md-4">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.artgalleryframes.com/images_products/eason-classic-art-frame-177lar.jpg');">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path painting.photo %>');">
                 <div class="card-category">
                   <p><%= painting.title.capitalize %></p>
                   <p><%= painting.description.capitalize%></p>

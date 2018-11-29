@@ -4,4 +4,5 @@ class Gallery < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
   validates :contact_name, presence: true
+  mount_uploader :photo, PhotoUploader
 end
