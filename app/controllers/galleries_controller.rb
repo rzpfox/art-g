@@ -6,7 +6,7 @@ class GalleriesController < ApplicationController
   end
 
   def show
-    @gallery = Gallery.find(params[:id]
+    @gallery = Gallery.find(params[:id])
   end
 
   def new
@@ -16,6 +16,7 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)
     @gallery.save
+    redirect_to @gallery
   end
 
   def edit
@@ -35,6 +36,6 @@ class GalleriesController < ApplicationController
   private
 
   def gallery_params
-    params.require(:gallery).permit(:name, :address, :contact_name, :painting_id, :gallery_id)
+    params.require(:gallery).permit(:name, :address, :contact_name, :painting_id, :gallery_id, :phone_number)
   end
 end

@@ -1,0 +1,27 @@
+  <div class = "gallery_name"><h1><%= @gallery.name.capitalize %></h1></div>
+  <i class="far fa-address-card"></i><div class = "gallery_contact_name"><p><%= @gallery.contact_name %></p></div>
+  <div class = "gallery_address"><p><%= @gallery.address %></p></div>
+  <div class = "gallery_phone_number"><p><i class="fas fa-phone">  <%= @gallery.phone_number %></i></p></div>
+  <div class="btn btn-primary btn-lg"><p><%= link_to "Add Painting", new_gallery_painting_path(@gallery) %>
+    </p></div>
+
+ <div class="container">
+    <%  @gallery.paintings.each_slice(12) do |gallery|%>
+      <div class="row">
+        <% @gallery.paintings.each do |painting| %>
+          <%= link_to painting_path(painting) do %>
+            <div class="col-xs-12, col-sm-6, col-md-4">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://allinnigeria.com/wp-content/uploads/2016/08/Red-Door-Gallery.jpg');">
+                <div class="card-category">
+                  <p><%= painting.title.capitalize %></p>
+                  <p><%= painting.description.capitalize%></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+

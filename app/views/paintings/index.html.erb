@@ -1,0 +1,17 @@
+  <div class="container">
+    <%  @paintings.each_slice(12) do |painting|%>
+      <div class="row">
+        <% @paintings.each do |painting| %>
+          <%= link_to painting do %>
+            <div class="col-xs-12, col-sm-6, col-md-4">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.artgalleryframes.com/images_products/eason-classic-art-frame-177lar.jpg');">
+                <div class="card-category">
+                  <%= painting.title.capitalize %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>

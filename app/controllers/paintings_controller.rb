@@ -4,37 +4,38 @@ class PaintingsController < ApplicationController
   end
 
   def show
-    @gallery = Gallery.find(params[:gallery_id]
-    @painting = painting.find(params[:id]
+    @painting = Painting.find(params[:id])
+    @gallery = @painting.gallery
   end
 
   def new
-    @gallery = Gallery.find(params[:gallery_id]
+    @gallery = Gallery.find(params[:gallery_id])
     @painting = Painting.new
-
   end
 
   def create
-    @gallery = Gallery.find(params[:gallery_id]
+    @gallery = Gallery.find(params[:gallery_id])
     @painting = Painting.new(painting_params)
     @painting.gallery = @gallery
     @painting.save
+
+    redirect_to @painting
   end
 
   def edit
-    @gallery = Gallery.find(params[:gallery_id]
-    @painting = painting.find(params[:id]
+    @gallery = Gallery.find(params[:gallery_id])
+    @painting = painting.find(params[:id])
   end
 
   def update
-    @gallery = Gallery.find(params[:gallery_id]
-    @painting = painting.find(params[:id]
+    @gallery = Gallery.find(params[:gallery_id])
+    @painting = painting.find(params[:id])
     @painting.update(painting_params)
   end
 
   def destroy
-    @gallery = Gallery.find(params[:gallery_id]
-    @painting = painting.find(params[:id]
+    @gallery = Gallery.find(params[:gallery_id])
+    @painting = painting.find(params[:id])
     @painting.destroy(painting_params)
   end
 

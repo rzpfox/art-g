@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <%= simple_form_for [@gallery, @painting] do |f| %>
+        <%= f.input :title, class: "name-box" %>
+        <%= f.input :description, class: "contact-name-box" %>
+        <%= f.input :artist_name, class: "address-box" %>
+        <%= f.input :status, class: "phone-number-box" %>
+        <%= f.input :value, class: "value-box" %>
+        <%= f.submit "Add Painting", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
