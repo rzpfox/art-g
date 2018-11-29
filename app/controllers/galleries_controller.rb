@@ -16,6 +16,7 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)
     @gallery.save
+
     redirect_to @gallery
   end
 
