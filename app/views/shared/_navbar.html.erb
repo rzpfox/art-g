@@ -10,6 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= current_user.email %>
       <%= link_to "Galleries", galleries_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Paintings", all_paintings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
