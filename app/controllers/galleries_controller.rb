@@ -27,11 +27,13 @@ class GalleriesController < ApplicationController
   def update
     @gallery = Gallery.find(params[:id])
     @gallery.update(gallery_params)
+    redirect_to @gallery
   end
 
   def destroy
     @gallery = Gallery.find(params[:id])
-    @gallery.destroy(gallery_params)
+    @gallery.destroy
+    redirect_to root_path
   end
 
   private
