@@ -1,7 +1,13 @@
   <div class = "painting_title"><h1><%= @painting.title.capitalize %></h1></div>
+  <div class = "painting_description"><p><%= @painting.description %></p></div>
   <div class = "painting_artist_name"><p><strong>Artist: </strong><%= @painting.artist_name %></p></div>
   <div class = "painting_status"><p><strong>Status: </strong> <%= @painting.status %></p></div>
   <div class = "painting_value"><p><strong>Value: </strong>  <%= @painting.value %></p></div>
   <div><%= cl_image_tag @painting.photo, height: 300, width: 400, crop: :fill %>
 </div>
+<div>
+  <%= link_to "Make Changes to this painting",edit_painting_path(@painting) %>
+  <p><%= link_to "Delist this painting", painting_path(@painting),method: :delete, data: { confirm: "Are you sure?"} %></p>
+</div>
+
   <div><p><%= link_to "Browse the Gallery Collection",gallery_path(@gallery) %></p></div>

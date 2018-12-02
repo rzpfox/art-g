@@ -1,5 +1,5 @@
   <div class = "gallery_name"><h1><%= @gallery.name.capitalize %></h1></div>
-    <div><%= cl_image_tag @gallery.photo, height: 100, width: 100, crop: :fill %> <p><%= link_to "Make Change to your Gallery", edit_gallery_path(@gallery) %></p><p><%= link_to "Delete your Gallery", gallery_path(@gallery),
+    <div><%= cl_image_tag @gallery.photo, height: 100, width: 100, crop: :fill %> <p><%= link_to "Make Changes to your Gallery", edit_gallery_path(@gallery) %></p><p><%= link_to "Delist your Gallery", gallery_path(@gallery),
       method: :delete,
       data: { confirm: "Are you sure?" } %></p>
   </div>
