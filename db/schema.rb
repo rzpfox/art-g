@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_29_074953) do
+ActiveRecord::Schema.define(version: 2018_12_03_140749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2018_11_29_074953) do
     t.datetime "updated_at", null: false
     t.string "phone_number"
     t.string "photo"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_galleries_on_user_id"
   end
 
   create_table "paintings", force: :cascade do |t|
@@ -35,7 +37,9 @@ ActiveRecord::Schema.define(version: 2018_11_29_074953) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.bigint "user_id"
     t.index ["gallery_id"], name: "index_paintings_on_gallery_id"
+    t.index ["user_id"], name: "index_paintings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,9 +50,12 @@ ActiveRecord::Schema.define(version: 2018_11_29_074953) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "galleries", "users"
   add_foreign_key "paintings", "galleries"
+  add_foreign_key "paintings", "users"
 end

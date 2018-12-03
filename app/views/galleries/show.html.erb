@@ -1,16 +1,23 @@
   <div class = "gallery_name"><h1><%= @gallery.name.capitalize %></h1></div>
-    <div><%= cl_image_tag @gallery.photo, height: 100, width: 100, crop: :fill %> <p><%= link_to "Make Changes to your Gallery", edit_gallery_path(@gallery) %></p><p><%= link_to "Delist your Gallery", gallery_path(@gallery),
+    <div><%= cl_image_tag @gallery.photo, height: 100, width: 100, crop: :fill %> <p>
+      <% if policy(@gallery).edit?%>
+        <%= link_to "Make Changes to your Gallery", edit_gallery_path(@gallery) %></p>
+      <% end %>
+      <% if policy(@gallery).destroy? %>
+        <p><%= link_to "Delist your Gallery", gallery_path(@gallery),
       method: :delete,
       data: { confirm: "Are you sure?" } %></p>
+      <% end %>
   </div>
   <i class="far fa-address-card"></i><div class = "gallery_contact_name"><p><%= @gallery.contact_name %></p></div>
   <div class = "gallery_address"><p><%= @gallery.address %></p></div>
   <div class = "gallery_phone_number">
     <p><i class="fas fa-phone">  <%= @gallery.phone_number %></i></p>
   </div>
-  <div class="btn btn-primary btn-lg">
-    <p>
-      <%= link_to "Add Painting", new_gallery_painting_path(@gallery) %>
+    <% if policy(@gallery).destroy? %>
+    <div class="btn btn-primary btn-lg">
+    <p><%= link_to "Add Painting", new_gallery_painting_path(@gallery) %>
+    <% end %>
     </p>
   </div>
 
