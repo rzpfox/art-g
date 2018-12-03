@@ -8,30 +8,36 @@ class PaintingsController < ApplicationController
   def show
     @painting = Painting.find(params[:id])
     @gallery = @painting.gallery
+    authorize @painting
   end
 
   def new
     @gallery = Gallery.find(params[:gallery_id])
     @painting = Painting.new
+    authorize @painting
   end
 
   def create
     @gallery = Gallery.find(params[:gallery_id])
     @painting = Painting.new(painting_params)
     @painting.gallery = @gallery
-    if @painting.save
-      redirect_to gallery_path(@gallery)
-    else
-      render "galleries/show"
-    end
+    @painting.user = current_user
+    authorize @painting
+    @painting.save!
+    redirect_to gallery_path(@gallery)
+    # else
+    #   render "galleries/show"
+    # end
   end
 
   def edit
     @painting = Painting.find(params[:id])
+    authorize @painting
   end
 
   def update
     @painting = Painting.find(params[:id])
+    authorize @painting
     @painting.update(painting_params)
     # @painting.gallery = @gallery
     redirect_to @painting
@@ -39,6 +45,7 @@ class PaintingsController < ApplicationController
 
   def destroy
     @painting = Painting.find(params[:id])
+    authorize @painting
     @painting.destroy
     redirect_to gallery_path(@painting.gallery)
   end

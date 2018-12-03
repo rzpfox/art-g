@@ -18,6 +18,7 @@ class GalleriesController < ApplicationController
 
   def create
     @gallery = Gallery.new(gallery_params)
+    @gallery.user = current_user
     authorize @gallery
     @gallery.save!
 
@@ -46,6 +47,6 @@ class GalleriesController < ApplicationController
   private
 
   def gallery_params
-    params.require(:gallery).permit(:name, :user_id, :user, :address, :contact_name, :painting_id, :gallery_id, :phone_number, :photo)
+    params.require(:gallery).permit(:name, :user_id, :address, :contact_name, :painting_id, :gallery_id, :phone_number, :photo)
   end
 end

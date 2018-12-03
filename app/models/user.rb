@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :galleries
   has_many :paintings, through: :galleries
-  enum role: [:user, :vip, :admin]
+  enum role: [:user, :owner]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role

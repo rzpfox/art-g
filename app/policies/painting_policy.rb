@@ -5,16 +5,22 @@ class PaintingPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    record.user == user
+  end
+
   def create?
-   #TODO, only gallery creator can create painting.
+    record.user == user
   end
 
   def show?
     return true
   end
+
   def update?
     record.user == user
   end
+
   def destroy?
     record.user == user
   end
