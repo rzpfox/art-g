@@ -1,7 +1,8 @@
 class PaintingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @paintings = Painting.all
+    # @paintings = Painting.all
+    @paintings = policy_scope(Painting).order(created_at: :asc)
   end
 
   def show
@@ -45,6 +46,6 @@ class PaintingsController < ApplicationController
   private
 
   def painting_params
-    params.require(:painting).permit(:title, :description, :artist_name, :status, :value, :gallery_id, :painting_id, :photo)
+    params.require(:painting).permit(:title, :user_id, :description, :artist_name, :status, :value, :gallery_id, :painting_id, :photo)
   end
 end
