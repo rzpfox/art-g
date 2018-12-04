@@ -61,15 +61,17 @@ class PaintingsController < ApplicationController
   end
 
   def processed_params
-    {
-      title: painting_params[:title],
-      user_id: painting_params[:user_id],
-      description: painting_params[:description],
-      artist_id: painting_params[:artist].to_i,
-      status: painting_params[:status],
-      value: painting_params[:value],
-      photo: painting_params[:photo]
-    }
+    painting_params[:artist] = painting_params[:artist].to_i
+    painting_params
+    # {
+    #   title: painting_params[:title],
+    #   user_id: painting_params[:user_id],
+    #   description: painting_params[:description],
+    #   artist_id: painting_params[:artist].to_i,
+    #   status: painting_params[:status],
+    #   value: painting_params[:value],
+    #   photo: painting_params[:photo]
+    # }
   end
 
   def locate_gallery
