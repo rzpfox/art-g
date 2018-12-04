@@ -40,14 +40,15 @@ ActiveRecord::Schema.define(version: 2018_12_04_025453) do
   create_table "paintings", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.string "artist_name"
     t.string "status"
     t.string "value"
     t.bigint "gallery_id"
+    t.bigint "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
     t.bigint "user_id"
+    t.index ["artist_id"], name: "index_paintings_on_artist_id"
     t.index ["gallery_id"], name: "index_paintings_on_gallery_id"
     t.index ["user_id"], name: "index_paintings_on_user_id"
   end
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_025453) do
 
   add_foreign_key "artists", "users"
   add_foreign_key "galleries", "users"
+  add_foreign_key "paintings", "artists"
   add_foreign_key "paintings", "galleries"
   add_foreign_key "paintings", "users"
 end

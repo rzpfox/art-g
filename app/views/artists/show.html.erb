@@ -1,0 +1,43 @@
+<div class = "artist_title">
+  <h1><%= @artist.name.capitalize %></h1>
+</div>
+
+<div class = "artist_artist_name">
+  <p><strong>Bio: </strong><%= @artist.bio %></p>
+</div>
+
+<div>
+  <%= cl_image_tag @artist.photo, height: 300, width: 400, crop: :fill %>
+</div>
+
+<div>
+  <% if policy(@artist).edit? %>
+    <%= link_to "Make Changes to this artist",edit_artist_path(@artist) %>
+  <% end %>
+  <% if policy(@artist).edit? %>
+    <p><%= link_to "Delist this artist", artist_path(@artist),method: :delete, data: { confirm: "Are you sure?"} %></p>
+  <% end %>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <% @paintings.each do |painting| %>
+          <%= link_to painting_path(painting) do %>
+            <div class="col-xs-12, col-sm-6, col-md-4">
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path painting.photo %>');">
+                    <div class="card-category">
+                        <p>
+                            <%= painting.title.capitalize %>
+                        </p>
+                        <p>
+                            <%= painting.description.capitalize%>
+                        </p>
+                    </div>
+                </div>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+</div>

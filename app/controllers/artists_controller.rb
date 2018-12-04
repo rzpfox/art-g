@@ -1,6 +1,8 @@
 class ArtistsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+  before_action :locate_paintings, only: :show
+
   def index
     @artists = policy_scope(Artist).order(created_at: :asc)
   end
@@ -12,6 +14,8 @@ class ArtistsController < ApplicationController
 
   def new
     @artist = Artist.new
+    @artist.user = current_user
+
     authorize @artist
   end
 
@@ -47,5 +51,9 @@ class ArtistsController < ApplicationController
 
   def artist_params
     params.require(:artist).permit(:name, :user_id, :bio, :painting_id, :gallery_id, :photo)
+  end
+
+  def locate_paintings
+    @paintings = Painting.where(artist_id: params[:id])
   end
 end

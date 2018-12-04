@@ -5,8 +5,12 @@ class ArtistPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    record.user == user
+  end
+
   def create?
-    return true
+    record.user == user
   end
 
   def show?
