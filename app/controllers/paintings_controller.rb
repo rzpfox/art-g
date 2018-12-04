@@ -1,5 +1,9 @@
 class PaintingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
+  before_action :locate_gallery, only: [:new, :create]
+
+  before_action :locate_existing_artists, only: [:new, :edit]
   def index
     # @paintings = Painting.all
     @paintings = policy_scope(Painting).order(created_at: :asc)
@@ -12,14 +16,14 @@ class PaintingsController < ApplicationController
   end
 
   def new
-    @gallery = Gallery.find(params[:gallery_id])
     @painting = Painting.new
+    @painting.user = @gallery.user
+
     authorize @painting
   end
 
   def create
-    @gallery = Gallery.find(params[:gallery_id])
-    @painting = Painting.new(painting_params)
+    @painting = Painting.new(processed_params)
     @painting.gallery = @gallery
     @painting.user = current_user
     authorize @painting
@@ -53,6 +57,28 @@ class PaintingsController < ApplicationController
   private
 
   def painting_params
-    params.require(:painting).permit(:title, :user_id, :description, :artist_name, :status, :value, :gallery_id, :painting_id, :photo)
+    params.require(:painting).permit(:title, :user_id, :description, :artist, :status, :value, :photo)
+  end
+
+  def processed_params
+    painting_params[:artist] = painting_params[:artist].to_i
+    painting_params
+    # {
+    #   title: painting_params[:title],
+    #   user_id: painting_params[:user_id],
+    #   description: painting_params[:description],
+    #   artist_id: painting_params[:artist].to_i,
+    #   status: painting_params[:status],
+    #   value: painting_params[:value],
+    #   photo: painting_params[:photo]
+    # }
+  end
+
+  def locate_gallery
+    @gallery = Gallery.find(params[:gallery_id])
+  end
+
+  def locate_existing_artists
+    @existing_artists = Artist.all
   end
 end

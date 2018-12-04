@@ -13,7 +13,8 @@
       <%= current_user.email %>
       <%= link_to "Galleries", galleries_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Paintings", all_paintings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Artists", artists_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Appointments", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -39,8 +40,10 @@
         </div>
       </div>
     <% else %>
-      <!-- Login link (when logged out) -->
+
+  <!-- When Logged Out -->
       <%= link_to "Galleries", galleries_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Artists", artists_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Paintings", all_paintings_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_up", default: "Signup"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>

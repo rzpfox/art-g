@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_140749) do
+ActiveRecord::Schema.define(version: 2018_12_04_025453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.text "bio"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo"
+    t.index ["user_id"], name: "index_artists_on_user_id"
+  end
 
   create_table "galleries", force: :cascade do |t|
     t.string "name"
@@ -30,14 +40,15 @@ ActiveRecord::Schema.define(version: 2018_12_03_140749) do
   create_table "paintings", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.string "artist_name"
     t.string "status"
     t.string "value"
     t.bigint "gallery_id"
+    t.bigint "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
     t.bigint "user_id"
+    t.index ["artist_id"], name: "index_paintings_on_artist_id"
     t.index ["gallery_id"], name: "index_paintings_on_gallery_id"
     t.index ["user_id"], name: "index_paintings_on_user_id"
   end
@@ -55,7 +66,9 @@ ActiveRecord::Schema.define(version: 2018_12_03_140749) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "artists", "users"
   add_foreign_key "galleries", "users"
+  add_foreign_key "paintings", "artists"
   add_foreign_key "paintings", "galleries"
   add_foreign_key "paintings", "users"
 end

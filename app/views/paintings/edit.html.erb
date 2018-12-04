@@ -4,7 +4,9 @@
       <%= simple_form_for [@gallery, @painting] do |f| %>
         <%= f.input :title, class: "name-box" %>
         <%= f.input :description, class: "contact-name-box" %>
-        <%= f.input :artist_name, class: "address-box" %>
+
+        <%= f.input :artist, class: "address-box", as: :hidden %>
+
         <%= f.input :status, collection: Painting::STATUS, class: "phone-number-box" %>
         <%= f.input :value,collection: Painting::VALUE, class: "value-box" %>
         <%= f.input :photo %>

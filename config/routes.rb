@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/paintings', to: 'paintings#index', as: 'all_paintings'
-  resources :galleries do
+  resources :galleries, :artists do
     resources :paintings, shallow: true, except: :index do
       resources :appointments, shallow: true
     end
