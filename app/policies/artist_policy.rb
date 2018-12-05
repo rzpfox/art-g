@@ -1,7 +1,11 @@
 class ArtistPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      if user
+        scope.where(user: user)
+      else
+        scope.all
+      end
     end
   end
 
@@ -14,6 +18,10 @@ class ArtistPolicy < ApplicationPolicy
   end
 
   def show?
+    return true
+  end
+
+  def all?
     return true
   end
 

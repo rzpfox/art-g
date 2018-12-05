@@ -1,7 +1,11 @@
 class PaintingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      if user
+        scope.where(user: user)
+      else
+        scope.all
+      end
     end
   end
 
@@ -14,6 +18,10 @@ class PaintingPolicy < ApplicationPolicy
   end
 
   def show?
+    return true
+  end
+
+  def all?
     return true
   end
 

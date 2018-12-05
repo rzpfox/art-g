@@ -1,5 +1,4 @@
   <div class="container">
-    <%  @artists.each_slice(12) do |artist|%>
       <div class="row">
         <% @artists.each do |artist| %>
           <%= link_to artist_path(artist) do %>
@@ -13,5 +12,4 @@
           <% end %>
         <% end %>
       </div>
-    <% end %>
   </div>

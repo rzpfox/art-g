@@ -9,6 +9,11 @@ class PaintingsController < ApplicationController
     @paintings = policy_scope(Painting).order(created_at: :asc)
   end
 
+  def all
+    @paintings = Painting.all.order(created_at: :asc)
+    authorize @paintings, :all?
+  end
+
   def show
     @painting = Painting.find(params[:id])
     @gallery = @painting.gallery
@@ -70,7 +75,7 @@ class PaintingsController < ApplicationController
     #   title: painting_params[:title],
     #   user_id: painting_params[:user_id],
     #   description: painting_params[:description],
-    #   artist_id: painting_params[:artist].to_i,
+    #   artist_id: painting_params[:artist_id].to_i,
     #   status: painting_params[:status],
     #   value: painting_params[:value],
     #   photo: painting_params[:photo]
