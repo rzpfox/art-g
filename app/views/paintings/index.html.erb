@@ -1,5 +1,4 @@
   <div class="container">
-    <%  @paintings.each_slice(12) do |painting|%>
       <div class="row">
         <% @paintings.each do |painting| %>
           <%= link_to painting do %>
@@ -13,5 +12,4 @@
           <% end %>
         <% end %>
       </div>
-    <% end %>
   </div>

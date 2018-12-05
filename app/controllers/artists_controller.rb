@@ -7,6 +7,11 @@ class ArtistsController < ApplicationController
     @artists = policy_scope(Artist).order(created_at: :asc)
   end
 
+  def all
+    @artists = Artist.all.order(created_at: :asc)
+    authorize @artists, :all?
+  end
+
   def show
     @artist = Artist.find(params[:id])
     authorize @artist

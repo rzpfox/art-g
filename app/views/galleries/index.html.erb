@@ -1,5 +1,4 @@
   <div class="container">
-    <%  @galleries.each_slice(12) do |gallery|%>
       <div class="row">
         <% @galleries.each do |gallery| %>
           <%= link_to gallery_path(gallery) do %>
@@ -13,5 +12,4 @@
           <% end %>
         <% end %>
       </div>
-    <% end %>
   </div>
