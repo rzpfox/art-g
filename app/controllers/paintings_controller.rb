@@ -1,5 +1,5 @@
 class PaintingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :all]
 
   before_action :locate_gallery, only: [:new, :create]
 
