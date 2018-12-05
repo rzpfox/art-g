@@ -16,6 +16,8 @@ class PaintingsController < ApplicationController
   end
 
   def new
+    redirect_to new_artist_path if Artist.all == []
+
     @painting = Painting.new
     @painting.user = @gallery.user
 
@@ -57,12 +59,13 @@ class PaintingsController < ApplicationController
   private
 
   def painting_params
-    params.require(:painting).permit(:title, :user_id, :description, :artist, :status, :value, :photo)
+    params.require(:painting).permit(:title, :user_id, :description, :artist_id, :status, :value, :photo)
   end
 
   def processed_params
-    painting_params[:artist] = painting_params[:artist].to_i
-    painting_params
+    data = painting_params
+    data[:artist_id] = data[:artist_id].to_i
+    data
     # {
     #   title: painting_params[:title],
     #   user_id: painting_params[:user_id],

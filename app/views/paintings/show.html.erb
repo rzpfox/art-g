@@ -26,7 +26,7 @@
   <%= link_to "Make Changes to this painting",edit_painting_path(@painting) %>
   <% end %>
   <% if policy(@painting).edit? %>
-  <p><%= link_to "Delist this painting", painting_path(@painting),method: :delete, data: { confirm: "Are you sure?"} %></p>
+  <p><%= link_to "Delist this painting", painting_path(@painting), method: :delete, data: { confirm: "Are you sure?"} %></p>
   <% end %>
 </div>
 

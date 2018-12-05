@@ -9,7 +9,7 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
-    # authorize @artist
+    authorize @artist
     # why need to authorize here?
   end
 
