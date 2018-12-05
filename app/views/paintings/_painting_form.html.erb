@@ -1,0 +1,13 @@
+<%= simple_form_for [gallery, painting] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :featured, as: :boolean, checked_value: true, unchecked_value: false %>
+
+    <%= f.input :artist_id, as: :hidden %>
+
+    <%= f.input :status, collection: Painting::STATUS, class: "phone-number-box" %>
+    <%= f.input :value,collection: Painting::VALUE, class: "value-box" %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.submit "Edit Painting", class: "btn btn-primary" %>
+<% end %>
