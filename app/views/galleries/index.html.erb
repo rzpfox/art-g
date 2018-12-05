@@ -1,15 +1,7 @@
   <div class="container">
       <div class="row">
         <% @galleries.each do |gallery| %>
-          <%= link_to gallery_path(gallery) do %>
-            <div class="col-xs-12, col-sm-6, col-md-4">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path gallery.photo %>');">
-                <div class="card-category">
-                  <%= gallery.name.capitalize %>
-                </div>
-              </div>
-            </div>
-          <% end %>
+          <%= render 'gallery_card', gallery: gallery %>
         <% end %>
       </div>
   </div>

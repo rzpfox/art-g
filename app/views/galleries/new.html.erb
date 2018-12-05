@@ -1,15 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
-      <%= simple_form_for [@gallery] do |f| %>
-        <%= f.input :name, class: "name-box" %>
-        <%= f.input :contact_name, class: "contact-name-box" %>
-        <%= f.input :address, class: "address-box" %>
-        <%= f.input :phone_number, class: "phone-number-box" %>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
-        <%= f.submit "Add Gallery", class: "btn btn-primary" %>
-      <% end %>
+      <%= render 'gallery_form', gallery: @gallery, mode: "Add Gallery"%>
     </div>
   </div>
 </div>
