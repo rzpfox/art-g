@@ -1,85 +1,82 @@
-
-
 // Artists
-artist_a = {
-  "id": 2,
-  "name": "Leonardo De Vinci",
-  "bio": "Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. ",
-  "photo": "https://images.unsplash.com/photo-1521119989659-a83eee488004"
-}
-
-artist_b = {
-  "id": 4,
-  "name": "Pablo Ruiz Picasso",
-  "bio": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "photo": "https://images.unsplash.com/photo-1486074051793-e41332bf18fc"
-}
-
-artist_c = {
-  "id": 6,
-  "name": "Qi Baishi",
-  "bio": "Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.",
-  "photo": "https://images.unsplash.com/photo-1500832333538-837287aad2b6"
-}
+artists = [
+  {
+    "id": 2,
+    "name": "Leonardo De Vinci",
+    "bio": "Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. ",
+    "photo": "https://images.unsplash.com/photo-1521119989659-a83eee488004"
+  },
+  {
+    "id": 4,
+    "name": "Pablo Ruiz Picasso",
+    "bio": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "photo": "https://images.unsplash.com/photo-1486074051793-e41332bf18fc"
+  },
+  {
+    "id": 6,
+    "name": "Qi Baishi",
+    "bio": "Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.",
+    "photo": "https://images.unsplash.com/photo-1500832333538-837287aad2b6"
+  }
+]
 
 // Galleries
-gallery_4 = {
-  "id": 4,
-  "name": "Galleria de Paradiso",
-  "description": "Nullam quis risus eget urna mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
-  "address": "No. 1 Eden Boulevard 100001",
-  "phone_number": "6469463",
-  "photo": "https://images.unsplash.com/photo-1505416795390-0beeb662b1f2"
-}
+galleries = [
+  {
+    "id": 4,
+    "name": "Galleria de Paradiso",
+    "description": "Nullam quis risus eget urna mollis ornare vel eu leo. Cras mattis consectetur purus sit amet fermentum. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
+    "address": "No. 1 Eden Boulevard 100001",
+    "phone_number": "6469463",
+    "photo": "https://images.unsplash.com/photo-1505416795390-0beeb662b1f2"
+  },
+  {
+    "id": 6,
+    "name": "Tranquill",
+    "description": "Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
+    "address": "No. 9999 Nile Street 800601",
+    "phone_number": "85039763",
+    "photo": "https://images.unsplash.com/photo-1518997350705-0379564558ac"
+  },
+  {
+    "id": 7,
+    "name": "Tranquill",
+    "description": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod.",
+    "address": "No. 666 Fortune Alley 109001",
+    "phone_number": "85039763",
+    "photo": "https://images.unsplash.com/photo-1501682942051-11186018abc5"
+  }
+]
 
-gallery_6 = {
-  "id": 6,
-  "name": "Tranquill",
-  "description": "Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
-  "address": "No. 9999 Nile Street 800601",
-  "phone_number": "85039763",
-  "photo": "https://images.unsplash.com/photo-1518997350705-0379564558ac"
-}
-
-gallery_7 = {
-  "id": 7,
-  "name": "Tranquill",
-  "description": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod.",
-  "address": "No. 666 Fortune Alley 109001",
-  "phone_number": "85039763",
-  "photo": "https://images.unsplash.com/photo-1501682942051-11186018abc5"
-}
-
-// Paintings
-painting_3 = {
-  "id": 3,
-  "title": "Sprinting Splendor",
-  "description": "Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
-  "status": "available for sale",
-  "gallery_id": 4,
-  "artist_id": 2,
-  "photo": "https://images.unsplash.com/photo-1515405295579-ba7b45403062",
-  "featured": true
-}
-
-painting_11 = {
-  "id": 11,
-  "title": "Fuego de Aqua",
-  "description": "Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
-  "status": "sold",
-  "gallery_id": 7,
-  "artist_id": 4,
-  "photo": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17",
-  "featured": true
-}
-
-painting_a = {
-  "id": 3,
-  "title": "Vestibulum Magna Lorem",
-  "description": "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
-  "status": "on loan",
-  "gallery_id": 6,
-  "artist_id": 6,
-  "photo": "https://images.unsplash.com/photo-1495311634818-eda6134b7542",
-  "featured": false
-}
+paintings = [
+  {
+    "id": 3,
+    "title": "Sprinting Splendor",
+    "description": "Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
+    "status": "available for sale",
+    "gallery_id": 4,
+    "artist_id": 2,
+    "photo": "https://images.unsplash.com/photo-1515405295579-ba7b45403062",
+    "featured": true
+  },
+  {
+    "id": 11,
+    "title": "Fuego de Aqua",
+    "description": "Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
+    "status": "sold",
+    "gallery_id": 7,
+    "artist_id": 4,
+    "photo": "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Vestibulum Magna Lorem",
+    "description": "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+    "status": "on loan",
+    "gallery_id": 6,
+    "artist_id": 6,
+    "photo": "https://images.unsplash.com/photo-1495311634818-eda6134b7542",
+    "featured": false
+  }
+]
