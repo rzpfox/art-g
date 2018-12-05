@@ -1,9 +1,15 @@
 class GalleryPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      # display all galleries
+      # scope.all
       # display only galleries of the owner
       # scope.where(user: user)
+      if user
+        scope.where(user: user)
+      else
+        scope.all
+      end
     end
   end
 
@@ -16,6 +22,10 @@ class GalleryPolicy < ApplicationPolicy
   end
 
   def show?
+    return true
+  end
+
+  def all?
     return true
   end
 

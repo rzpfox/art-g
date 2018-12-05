@@ -5,7 +5,7 @@
         <%= f.input :title, class: "name-box" %>
         <%= f.input :description, class: "contact-name-box" %>
 
-        <%= f.input :artist, class: "address-box", as: :hidden %>
+        <%= f.input :artist_id, class: "address-box", as: :hidden %>
 
         <%= f.input :status, collection: Painting::STATUS, class: "phone-number-box" %>
         <%= f.input :value,collection: Painting::VALUE, class: "value-box" %>

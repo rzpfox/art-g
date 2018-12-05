@@ -6,6 +6,11 @@ class GalleriesController < ApplicationController
     @galleries = policy_scope(Gallery).order(created_at: :asc)
   end
 
+  def all
+    @galleries = Gallery.all.order(created_at: :asc)
+    authorize @galleries, :all?
+  end
+
   def show
     @gallery = Gallery.find(params[:id])
     authorize @gallery
