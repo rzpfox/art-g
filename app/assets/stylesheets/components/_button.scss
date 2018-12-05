@@ -1,3 +1,11 @@
 .btn {
-  color:white;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px lightblue;
+  margin: 1em;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
