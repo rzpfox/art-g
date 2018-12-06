@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/searches/:term', to: 'searches#show', as:'search_results'
+  post '/searches', to: 'searches#show'
   get '/paintings', to: 'paintings#index', as: 'all_my_paintings'
   get '/galleries/all', to: 'galleries#all', as: 'all_galleries'
   get '/paintings/all', to: 'paintings#all', as: 'all_paintings'

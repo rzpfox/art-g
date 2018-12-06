@@ -14,6 +14,14 @@
 
       <%= current_user.email %>
       <%= link_to "My Appointments", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <div class="search-bar">
+        <form action="/searches" method="post">
+        <input type="text" placeholder="Search.." name="term">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+
       <!--Artist Drop Down Menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -88,6 +96,13 @@
     <% else %>
 
   <!-- When Logged Out -->
+      <div class="search-bar">
+        <form action="/searches" method="post">
+        <input type="text" placeholder="Search.." name="term">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+
       <%= link_to "Galleries", galleries_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Artists", artists_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Paintings", all_paintings_path, class: "navbar-wagon-item navbar-wagon-link" %>
