@@ -1,7 +1,7 @@
 class CreateAppointments < ActiveRecord::Migration[5.2]
   def change
     create_table :appointments do |t|
-      t.boolean :confirmed
+      t.boolean :confirmed, default: false
       t.datetime :start_time
       t.string :visitor_email
       t.string :visitor_name
