@@ -2,12 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: 'pages#home'
-<<<<<<< HEAD
   get '/searches/:term', to: 'searches#show', as:'search_results'
   post '/searches', to: 'searches#show'
-=======
 
->>>>>>> 392509f36af93c5ba34cb3f7fe209f9708f72069
+
+
   get '/paintings', to: 'paintings#index', as: 'all_my_paintings'
   get '/galleries/all', to: 'galleries#all', as: 'all_galleries'
   get '/paintings/all', to: 'paintings#all', as: 'all_paintings'
@@ -18,6 +17,9 @@ Rails.application.routes.draw do
     resources :appointments, shallow: true
   end
 
+  resources :exhibitions do
+    resources :samples, shallow: true
+  end
   resources :artists
 
   namespace :api, defaults: { format: :json } do
