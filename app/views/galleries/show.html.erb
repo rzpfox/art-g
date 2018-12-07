@@ -31,22 +31,19 @@
   <div class="gallery_phone_number">
       <p><i class="fas fa-phone">  <%= @gallery.phone_number %></i></p>
   </div>
+
   <% if policy(@gallery).destroy? %>
-  <!-- since .new? returns true for every user, use .destroy? to ultilize the record.user == current_user policy of gallery -->
-  <div class="btn btn-primary btn-m">
-      <p>
-          <%= link_to "Add Artist", new_artist_path(@gallery) %>
-          <% end %>
-      </p>
-  </div>
+  <!-- since .new? returns true for every user, use .destroy? to ultilize-->
+  <!-- record.user == current_user policy of gallery -->
+    <%= link_to "Add Artist", new_artist_path(@gallery), class: "btn btn-primary btn-m" %>
+  <% end %>
+
   <% if policy(@gallery).destroy? %>
-  <!-- since .new? returns true for every user, use .destroy? to ultilize the record.user == current_user policy of gallery -->
-  <div class="btn btn-primary btn-m">
-      <p>
-          <%= link_to "Add Painting", new_gallery_painting_path(@gallery) %>
-          <% end %>
-      </p>
-  </div>
+    <%= link_to "Add Painting", new_gallery_painting_path(@gallery), class: "btn btn-primary btn-m" %>
+  <% end %>
+
+  <%= link_to "Add Appointment", new_gallery_appointment_path(@gallery), class: "btn btn-primary btn-m" %>
+
   <div class="container">
       <div class="row">
           <% @gallery.paintings.each do |painting| %>
