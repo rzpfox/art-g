@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_12_06_064250) do
+=======
+ActiveRecord::Schema.define(version: 2018_12_06_064652) do
+>>>>>>> 392509f36af93c5ba34cb3f7fe209f9708f72069
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.boolean "confirmed", default: false
+    t.datetime "start_time"
+    t.string "visitor_email"
+    t.string "visitor_name"
+    t.bigint "user_id"
+    t.bigint "gallery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gallery_id"], name: "index_appointments_on_gallery_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -76,6 +93,8 @@ ActiveRecord::Schema.define(version: 2018_12_06_064250) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "galleries"
+  add_foreign_key "appointments", "users"
   add_foreign_key "artists", "users"
   add_foreign_key "galleries", "users"
   add_foreign_key "paintings", "artists"

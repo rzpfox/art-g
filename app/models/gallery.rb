@@ -1,6 +1,8 @@
 class Gallery < ApplicationRecord
   belongs_to :user
   has_many :paintings, dependent: :destroy
+  has_many :appointments, dependent: :destroy
+  
   validates :name, presence: true, uniqueness: true
   validates :address, presence: true
   validates :phone_number, presence: true
