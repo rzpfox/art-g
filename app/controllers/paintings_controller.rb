@@ -6,11 +6,11 @@ class PaintingsController < ApplicationController
   before_action :locate_existing_artists, only: [:new, :edit]
   def index
     # @paintings = Painting.all
-    @paintings = policy_scope(Painting).order(created_at: :asc)
+    @paintings = policy_scope(Painting).order("RANDOM()")
   end
 
   def all
-    @paintings = Painting.all.order(created_at: :asc)
+    @paintings = Painting.all.order("RANDOM()")
     authorize @paintings, :all?
   end
 
