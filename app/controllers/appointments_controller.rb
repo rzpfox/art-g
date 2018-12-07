@@ -40,7 +40,9 @@ class AppointmentsController < ApplicationController
 
   def processed_params
     # need convertion of string into datetime
-    # converted_params = permited_params
+    converted_params = permited_params
     # converted_params[:start_time] = converted_params[:start_time]
+
+    converted_params[:confirmed] = false
   end
 end
