@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "bull" %>
@@ -14,6 +14,14 @@
 
       <%= current_user.email %>
       <%= link_to "My Appointments", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <div class="search-bar">
+        <form action="/searches" method="post">
+        <input type="text" placeholder="Search.." name="term">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+
       <!--Artist Drop Down Menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -65,7 +73,7 @@
       <!-- Login Drop Down Menu-->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%=  image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -85,9 +93,33 @@
           </ul>
         </div>
       </div>
+
+    <!-- mobile only when logged in -->
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "My Gallery", galleries_path %></li>
+          <li><%= link_to "My Paintings", all_my_paintings_path %></li>
+          <li><%= link_to "My Artists", artists_path%></li>
+          <li><%= link_to "All Gallery", all_galleries_path %></li>
+          <li><%= link_to "All Paintings", all_paintings_path %></li>
+          <li><%= link_to "All Artists", all_artists_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path %></li>
+
+        </ul>
+      </div>
+    </div>
     <% else %>
 
   <!-- When Logged Out -->
+      <div class="search-bar">
+        <form action="/searches" method="post">
+        <input type="text" placeholder="Search.." name="term">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+
       <%= link_to "Galleries", galleries_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Artists", artists_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Paintings", all_paintings_path, class: "navbar-wagon-item navbar-wagon-link" %>

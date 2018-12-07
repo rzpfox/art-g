@@ -34,6 +34,23 @@
   text-decoration: none;
 }
 
+.card-title {
+  opacity: 100;
+  color:white;
+  position: absolute;
+  top: 15px;
+  left: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.card-title:hover {
+  color: grey;
+  opacity: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 .featured .card {
   height: 240px;
 }

@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="gallery_name">
+      <h1><%= @exhibition.title.capitalize %></h1>
+  </div>
+  <div>
+      <%= cl_image_tag @exhibition.photo, height: 100, width: 100, crop: :fill %>
+      <p>
+          <% if policy(@exhibition).edit?%>
+          <%= link_to "Make Changes to your Exhibition", edit_exhibition_path(@exhibition) %>
+      </p>
+      <% end %>
+      <% if policy(@exhibition).destroy? %>
+      <p>
+          <%= link_to "Delist your Exhibition", exhibition_path(@exhibition),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+      </p>
+      <% end %>
+  </div>
+  <div class="gallery_contact_name">
+      <p>
+          <%= @exhibition.dates %>
+      </p>
+  </div>
+  <div class="exhibition_address">
+      <p>
+          <%= @exhibition.description %>
+      </p>
+  </div>
+  <div class="gallery_phone_number">
+      <p><%= @exhibition.location %></i></p>
+  </div>
+
+  <% if policy(@exhibition).destroy? %>
+  <!-- since .new? returns true for every user, use .destroy? to ultilize-->
+  <!-- record.user == current_user policy of exhibition -->
+    <%= link_to "Add Artist", new_artist_path(@exhibition), class: "btn btn-primary btn-m" %>
+  <% end %>
+
+  <% if policy(@exhibition).destroy? %>
+    <%= link_to "Add Sample Painting", new_exhibition_sample_path(@exhibition), class: "btn btn-primary btn-m" %>
+  <% end %>
+  <div class="container">
+      <div class="row">
+          <% @exhibition.samples.each do |sample| %>
+            <%= render '/samples/sample_card', sample: sample %>
+          <% end %>
+      </div>
+  </div>
+
+</div>

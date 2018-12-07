@@ -1,0 +1,7 @@
+  <div class="container">
+      <div class="row">
+        <% @exhibitions.each do |exhibition| %>
+          <%= render 'exhibition_card', exhibition: exhibition %>
+        <% end %>
+      </div>
+  </div>

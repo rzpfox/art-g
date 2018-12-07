@@ -1,0 +1,34 @@
+<div class="container">
+  <div class = "sample_title">
+  <h1><%= @sample.title.capitalize %></h1>
+</div>
+
+<div class = "sample_description">
+  <p><%= @sample.description %></p>
+</div>
+
+<div class = "sample_artist_pic">
+  <%= cl_image_tag @sample.artist.photo, height: 300, width: 400, crop: :fill , style: "border: solid 2px white; border-radius: 50%; height: 128px; width: 128px;"%>
+</div>
+
+<div class = "sample_artist_name">
+  <p><strong>Artist: </strong><%= @sample.artist.name %></p>
+</div>
+
+<div><%= cl_image_tag @sample.photo, height: 300, width: 400, crop: :fill %>
+</div>
+
+<div>
+  <% if policy(@sample).edit? %>
+  <%= link_to "Make Changes to this sample",edit_sample_path(@sample) %>
+  <% end %>
+  <% if policy(@sample).edit? %>
+  <p><%= link_to "Delist this sample", sample_path(@sample), method: :delete, data: { confirm: "Are you sure?"} %></p>
+  <% end %>
+</div>
+
+<div>
+  <p><%= link_to "Browse the Exhibition Collection",exhibition_path(@exhibition) %></p>
+</div>
+
+</div>

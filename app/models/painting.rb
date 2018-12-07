@@ -13,6 +13,9 @@ class Painting < ApplicationRecord
   belongs_to :gallery
   mount_uploader :photo, PhotoUploader
 
+  include PgSearch
+  multisearchable :against => [:title, :description, :status]
+
   def featured?
     featured
   end
