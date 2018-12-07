@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <% @results.each do |result| %>
+      <% if result.searchable_type == 'Gallery' %>
+        <p> <% gallery_search_result = result.searchable %>
+        <% gallery_search_result = result.searchable %>
+          <div class="col-xs-8, col-sm-6, col-md-4">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= gallery_search_result.photo %>');">
+              <%= link_to gallery_search_result do %>
+                <span class="card-title">Gallery</span>
+                <span class="card-info"><%= gallery_search_result.name.capitalize %></span>
+              <% end %>
+            </div>
+          </div>
+        </p>
+
+      <% elsif result.searchable_type == 'Painting'%>
+        <p><% painting_search_result = result.searchable %>
+          <div class="col-xs-8, col-sm-6, col-md-4">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= painting_search_result.photo %>');">
+              <%= link_to painting_search_result do %>
+                <span class="card-title">Painting</span>
+                <span class="card-info"><%= painting_search_result.title.capitalize %></span>
+              <% end %>
+            </div>
+          </div>
+        </p>
+
+      <% else result.searchable_type == 'Artist'%>
+        <p><% artist_search_result = result.searchable %></p>
+          <div class="col-xs-8, col-sm-6, col-md-4">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= artist_search_result.photo %>');">
+              <%= link_to artist_search_result do %>
+                <span class="card-title">Artist</span>
+                <span class="card-info"><%= artist_search_result.name.capitalize %></span>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

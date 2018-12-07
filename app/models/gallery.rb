@@ -6,4 +6,7 @@ class Gallery < ApplicationRecord
   validates :phone_number, presence: true
   validates :contact_name, presence: true
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch
+  multisearchable :against => [:name, :address]
 end

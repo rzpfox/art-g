@@ -4,4 +4,7 @@ class Artist < ApplicationRecord
   validates :name, presence: true
   validates :bio, presence: true, uniqueness: true
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch
+  multisearchable :against => [:name, :bio]
 end
