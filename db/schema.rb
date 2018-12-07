@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_064250) do
+ActiveRecord::Schema.define(version: 2018_12_07_093530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.boolean "confirmed", default: false
+    t.datetime "start_time"
+    t.string "visitor_email"
+    t.string "visitor_name"
+    t.bigint "user_id"
+    t.bigint "gallery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gallery_id"], name: "index_appointments_on_gallery_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -25,6 +38,18 @@ ActiveRecord::Schema.define(version: 2018_12_06_064250) do
     t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
+  create_table "exhibitions", force: :cascade do |t|
+    t.string "title"
+    t.string "location"
+    t.string "dates"
+    t.string "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo"
+    t.index ["user_id"], name: "index_exhibitions_on_user_id"
+  end
+
   create_table "galleries", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -34,6 +59,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_064250) do
     t.string "phone_number"
     t.string "photo"
     t.bigint "user_id"
+    t.string "open_time"
     t.index ["user_id"], name: "index_galleries_on_user_id"
   end
 
@@ -63,6 +89,20 @@ ActiveRecord::Schema.define(version: 2018_12_06_064250) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
+  create_table "samples", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.bigint "user_id"
+    t.bigint "exhibition_id"
+    t.bigint "artist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo"
+    t.index ["artist_id"], name: "index_samples_on_artist_id"
+    t.index ["exhibition_id"], name: "index_samples_on_exhibition_id"
+    t.index ["user_id"], name: "index_samples_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -76,9 +116,15 @@ ActiveRecord::Schema.define(version: 2018_12_06_064250) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "galleries"
+  add_foreign_key "appointments", "users"
   add_foreign_key "artists", "users"
+  add_foreign_key "exhibitions", "users"
   add_foreign_key "galleries", "users"
   add_foreign_key "paintings", "artists"
   add_foreign_key "paintings", "galleries"
   add_foreign_key "paintings", "users"
+  add_foreign_key "samples", "artists"
+  add_foreign_key "samples", "exhibitions"
+  add_foreign_key "samples", "users"
 end

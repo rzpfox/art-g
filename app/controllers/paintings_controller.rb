@@ -4,13 +4,16 @@ class PaintingsController < ApplicationController
   before_action :locate_gallery, only: [:new, :create]
 
   before_action :locate_existing_artists, only: [:new, :edit]
+
+  before_action :locate_painting, only: [:edit, :update, :destroy]
+
   def index
     # @paintings = Painting.all
-    @paintings = policy_scope(Painting).order(created_at: :asc)
+    @paintings = policy_scope(Painting).order("RANDOM()")
   end
 
   def all
-    @paintings = Painting.all.order(created_at: :asc)
+    @paintings = Painting.all.order("RANDOM()")
     authorize @paintings, :all?
   end
 
@@ -24,16 +27,19 @@ class PaintingsController < ApplicationController
     redirect_to new_artist_path if Artist.all == []
 
     @painting = Painting.new
-    @painting.user = @gallery.user
+    # @painting.user = @gallery.user
 
-    authorize @painting
+    authorize @gallery
   end
 
   def create
     @painting = Painting.new(processed_params)
+
     @painting.gallery = @gallery
     @painting.user = current_user
+
     authorize @painting
+
     @painting.save!
     redirect_to gallery_path(@gallery)
     # else
@@ -42,12 +48,10 @@ class PaintingsController < ApplicationController
   end
 
   def edit
-    @painting = Painting.find(params[:id])
     authorize @painting
   end
 
   def update
-    @painting = Painting.find(params[:id])
     authorize @painting
     @painting.update(painting_params)
     # @painting.gallery = @gallery
@@ -55,7 +59,6 @@ class PaintingsController < ApplicationController
   end
 
   def destroy
-    @painting = Painting.find(params[:id])
     authorize @painting
     @painting.destroy
     redirect_to gallery_path(@painting.gallery)
@@ -88,5 +91,9 @@ class PaintingsController < ApplicationController
 
   def locate_existing_artists
     @existing_artists = Artist.all
+  end
+
+  def locate_painting
+    @painting = Painting.find(params[:id])
   end
 end

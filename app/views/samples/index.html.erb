@@ -1,0 +1,7 @@
+  <div class="container">
+      <div class="row">
+        <% @samples.each do |sample| %>
+          <%= render 'sample_card', sample: sample %>
+        <% end %>
+      </div>
+  </div>
