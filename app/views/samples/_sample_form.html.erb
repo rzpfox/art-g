@@ -1,0 +1,13 @@
+<%= simple_form_for [exhibition, sample] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+
+    <% if mode == "Edit Sample" %>
+      <%= f.input :artist_id, as: :hidden %>
+    <% else %>
+      <%= f.input :artist_id, as: :select, collection: @existing_artists %>
+    <% end %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.submit mode, class: "btn btn-primary" %>
+<% end %>

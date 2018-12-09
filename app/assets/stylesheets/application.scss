@@ -1,19 +1,59 @@
 // Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+@import 'config/fonts';
+@import 'config/colors';
+@import 'config/bootstrap_variables';
 
 // External libraries
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 // Your CSS partials
-@import "layouts/index";
-@import "components/alert";
-@import "components/footer";
-@import "components/navbar";
+@import 'layouts/index';
+@import 'components/index';
 
-@import "pages/index";
-@import "pages/home";
+
+@import 'pages/index';
+@import 'pages/home';
+
+.navbar-wagon {
+  background-color: inherit;
+  box-shadow: none;
+}
+
+.featured {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 4em;
+}
+
+.container {
+  padding-bottom: 180px;
+  padding-top: 2em;
+}
+
+.footer {
+  background-color: #F4F4F4;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 10000;
+}
+
+.gallery-banner {
+  height: 40vh
+}
+
+@media only screen and (max-width: 665px) {
+  .footer {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+body {
+  padding-top: 70px;
+}

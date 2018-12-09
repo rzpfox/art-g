@@ -6,8 +6,17 @@ class Painting < ApplicationRecord
   validates :artist, presence: true
   validates :status, presence: true, inclusion: { in: STATUS }
   validates :value, presence: true, inclusion: { in: VALUE}
+
   belongs_to :user
+
   belongs_to :artist
   belongs_to :gallery
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch
+  multisearchable :against => [:title, :description, :status]
+
+  def featured?
+    featured
+  end
 end

@@ -1,16 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <%= simple_form_for [@gallery, @painting] do |f| %>
-        <%= f.input :title, class: "name-box" %>
-        <%= f.input :description, class: "contact-name-box" %>
-        <%= f.input :artist_id, as: :select, collection: @existing_artists %>
-        <%= f.input :status, collection: Painting::STATUS, class: "phone-number-box" %>
-        <%= f.input :value,collection: Painting::VALUE, class: "value-box" %>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
-        <%= f.submit "Add Painting", class: "btn btn-primary" %>
-      <% end %>
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <%= render 'painting_form', gallery: @gallery, painting: @painting, mode: "New Painting" %>
     </div>
   </div>
 </div>

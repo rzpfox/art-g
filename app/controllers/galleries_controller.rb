@@ -14,6 +14,7 @@ class GalleriesController < ApplicationController
   def show
     @gallery = Gallery.find(params[:id])
     authorize @gallery
+    @marker = { lng: @gallery.longitude, lat: @gallery.latitude }
   end
 
   def new
