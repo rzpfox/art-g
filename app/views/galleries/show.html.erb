@@ -26,12 +26,14 @@
     <% if policy(@gallery).destroy? %>
     <!-- since .new? returns true for every user, use .destroy? to ultilize-->
     <!-- record.user == current_user policy of gallery -->
-      <p><%= link_to "Add Artist", new_artist_path(@gallery), class: "btn btn-primary btn-m gallery-add-btn" %>
+      <%= link_to "Add Artist", new_artist_path(@gallery), class: "btn btn-primary btn-m gallery-add-btn" %>
+
+      <%= link_to "Add Painting", new_gallery_painting_path(@gallery), class: "btn btn-primary btn-m gallery-add-btn" %>
     <% end %>
 
-    <% if policy(@gallery).destroy? %>
-      <%= link_to "Add Painting", new_gallery_painting_path(@gallery), class: "btn btn-primary btn-m gallery-add-btn" %></p>
-    <% end %>
+    <%= link_to "Add Appointment", new_gallery_appointment_path(@gallery), class: "btn btn-primary btn-m gallery-add-btn" %>
+
+
   </div>
 
   <div class="map">

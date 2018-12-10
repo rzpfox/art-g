@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @appointment.visitor_name %>, Your Upcoming Appointment</h1>
+    <p>
+      <%= @appointment.start_time %>
+    </p>
+    <p>
+      <%= @appointment.gallery.name %>
+    </p>
+    <p>
+      <%= @appointment.visitor_email %>
+    </p>
+    <p><a href="<%= @url %>">View / Change This Appointment</a></p>
+  </body>
+</html>

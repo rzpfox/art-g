@@ -6,21 +6,7 @@
 
       <h2>New Appointment</h2>
 
-      <!-- form for new appointment -->
-      <%= simple_form_for [@gallery, @appointment] do |f| %>
-        <%= f.input :visitor_name %>
-        <%= f.input :visitor_email %>
-
-        <%= f.input :start_time, as: :date_time_picker %>
-        <!-- Done: 1. how to present the start_time in calendar form -->
-        <!-- TODO: 2. limit the datetime range -->
-
-        <%#= f.input :confirmed, as: :boolean, checked_value: true, unchecked_value: false %>
-        <!-- confirmed by whom, the gallery_owner, maybe? -->
-
-        <%= f.submit 'Submit', class: "btn btn-primary btn-md" %>
-
-      <% end %>
+      <%= render 'appointment_form', gallery: @gallery, appointment: @appointment %>
     </div>
   </div>
 </div>

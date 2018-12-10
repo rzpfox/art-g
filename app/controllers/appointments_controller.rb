@@ -1,9 +1,11 @@
+require 'securerandom'
+
 class AppointmentsController < ApplicationController
   skip_before_action :authenticate_user!
 
   before_action :locate_gallery, only: [:new, :create]
 
-  before_action :locate_appointment, only: :show
+  before_action :locate_appointment, only: [:show, :edit, :update, :destroy]
 
   def index
     @appointments = policy_scope(Appointment).order(start_time: :asc)
@@ -24,10 +26,38 @@ class AppointmentsController < ApplicationController
     @appointment.gallery = @gallery
     @appointment.user = @gallery.user
 
+    @appointment.token = SecureRandom.uuid
     @appointment.save
+
+    # respond_to do |format|
+    #   if @appointment.save
+    #     # Tell the UserMailer to send a welcome email after save
+    #     AppointmentMailer.with(appointment: @appointment).new_appointment_email.deliver_now
+    #     # can also use deliver_later
+
+    #     format.html { redirect_to(@appointment, notice: 'Appointment was successfully created.') }
+    #     format.json { render json: @appointment, status: :created, location: @appointment }
+    #   else
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @appointment.errors, status: :unprocessable_entity }
+    #   end
+    # end
     authorize @gallery
 
     redirect_to appointment_path(@appointment)
+  end
+
+  def edit
+    @gallery = @appointment.gallery
+    authorize @gallery
+  end
+
+  def update
+
+  end
+
+  def destroy
+
   end
 
   private
@@ -41,7 +71,7 @@ class AppointmentsController < ApplicationController
   end
 
   def permited_params
-    params.require(:appointment).permit(:visitor_name, :visitor_email, :start_time, :confirmed)
+    params.require(:appointment).permit(:visitor_name, :visitor_email, :start_time, :confirmed, :token)
   end
 
   def processed_params

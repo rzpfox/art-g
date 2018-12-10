@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+
+.featured {
+  height: 70vh;
+  position: relative;
+  width: 100vw;
+
+  .card {
+    border-radius: 0;
+    box-shadow: none;
+    position: absolute;
+    height: 70vh;
+    margin: 0;
+    width: 100vw;
+  }
+}

@@ -1,36 +1,26 @@
-<div class="artist">
-  <div class = 'artist-photo'>
-    <%= cl_image_tag @artist.photo, class: "artist-photograph" %>
-  </div>
-
-  <div>
-    <h1 class = 'artist-name'><%= @artist.name.capitalize %></h1>
-
-    <p class = "artist-bio"><strong>Bio: </strong><%= @artist.bio %><p>
-    <div class = 'artist-edit-destroy'>
+<div class="box">
+  <div class="artist">
+    <div class="artist-info">
+      <div class='artist-avatar' style="background-image: url('<%= cl_image_path @artist.photo %>');">
+      </div>
+      <p class="artist-name"><%= @artist.name %><p>
+      <p class="artist-bio"><%= @artist.bio %><p>
+      <p class="artist-controlls">
       <% if policy(@artist).edit? %>
-        <%= link_to "Make Changes to this artist",edit_artist_path(@artist), class: "btn btn-primary btn-m" %>
+        <%= link_to "Edit",edit_artist_path(@artist), class: "btn btn-primary btn-m" %>
       <% end %>
       <% if policy(@artist).destroy? %>
-        <p><%= link_to "Delist this artist", artist_path(@artist),method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-m"%></p>
+        <%= link_to "Delete", artist_path(@artist),method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-m"%>
       <% end %>
     </div>
   </div>
-
-</div>
-
-<div class="container artist-photo">
-  <div class="row">
-    <% @paintings.each do |painting| %>
-      <%= link_to painting_path(painting) do %>
-        <div class="col-xs-12, col-sm-6, col-md-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path painting.photo %>');">
-            <div class="card-category">
-              <p id='painting-title-upcase'><%= painting.title.upcase %></p>
-            </div>
-          </div>
-        </div>
+  <div class="artist-portofolio">
+    <div class="row">
+      <% @paintings.each do |painting| %>
+        <%= link_to painting_path(painting) do %>
+          <%= render '/paintings/painting_card', painting: painting %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
