@@ -6,14 +6,15 @@
       <p class="artist-name"><%= @artist.name %><p>
       <p class="artist-bio"><%= @artist.bio %><p>
       <p class="artist-controlls">
-      <% if policy(@artist).edit? %>
-        <%= link_to "Edit",edit_artist_path(@artist), class: "btn btn-primary btn-m" %>
-      <% end %>
-      <% if policy(@artist).destroy? %>
-        <%= link_to "Delete", artist_path(@artist),method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-m"%>
-      <% end %>
-    </div>
+        <% if policy(@artist).edit? %>
+          <%= link_to "Edit",edit_artist_path(@artist), class: "btn btn-primary btn-m" %>
+        <% end %>
+        <% if policy(@artist).destroy? %>
+          <%= link_to "Delete", artist_path(@artist),method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger btn-m"%>
+        <% end %>
+      </p>
   </div>
+
   <div class="artist-portofolio">
     <div class="row">
       <% @paintings.each do |painting| %>
