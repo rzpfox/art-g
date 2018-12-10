@@ -1,23 +1,23 @@
 <div class="gallery">
   <div>
-    <h1><strong><%= @gallery.name.capitalize %></strong></h1>
-
-    <p class="gallery_contact_name"><i class="far fa-address-card">
-      <%= @gallery.contact_name %></i></p>
-
-    <p class="gallery_phone_number"><i class="fas fa-phone"><%= @gallery.phone_number %></i></p>
-
-    <p><%= link_to "Add Appointment", new_gallery_appointment_path(@gallery), class: "btn btn-primary btn-m" %></p>
-
-    <p><% if policy(@gallery).edit?%>
-        <%= link_to "Make Changes to your Gallery", edit_gallery_path(@gallery), class: "btn btn-primary btn-m" %></p>
-       <% end %>
-
-
-
-    <% if policy(@gallery).destroy? %>
-    <p><%= link_to "Delist your Gallery", gallery_path(@gallery), class: "btn btn-danger btn-m", method: :delete,data: { confirm: "Are you sure?" } %></p>
-    <% end %>
+<h1><strong><%= @gallery.name.capitalize %></strong></h1>
+      <%= cl_image_tag @gallery.photo, height: 100, width: 100, crop: :fill %>
+      <p>
+          <% if policy(@gallery).edit?%>
+          <%= link_to "Make Changes to your Gallery", edit_gallery_path(@gallery) %>
+      </p>
+      <% end %>
+      <% if policy(@gallery).destroy? %>
+      <p>
+          <%= link_to "Delist your Gallery", gallery_path(@gallery), method: :delete, data: { confirm: "Are you sure?" } %>
+      </p>
+      <% end %>
+  </div>
+  <i class="far fa-address-card"></i>
+  <div class="gallery_contact_name">
+      <p>
+          <%= @gallery.contact_name %>
+      </p>
   </div>
 
   <div>
@@ -38,7 +38,7 @@
     <p
     id="map"
     data-marker="<%= @marker.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></p>
+    data-mapbox-api-key="<%= Rails.application.secrets.mapbox_token %>"></p>
 
     <p class="gallery_address"><%= @gallery.address %></p>
 
@@ -55,8 +55,6 @@
           <% end %>
       </div>
   </div>
-
-
-
-
 </div>
+
+

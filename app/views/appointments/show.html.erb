@@ -1,9 +1,10 @@
-show one particular appointment
 <%= render '/galleries/gallery_banner', gallery: @gallery %>
 
-<h2>Your Appointment</h2>
-<p><%= @appointment.start_time %></p>
-<p><%= @appointment.visitor_name %></p>
-<p><%= @appointment.visitor_email %></p>
+<div class="container">
+  <h2>Your Appointment</h2>
+  <p><%= @appointment.start_time %></p>
+  <p><%= @appointment.visitor_name %></p>
+  <p><%= @appointment.visitor_email %></p>
 
-<%= link_to "Edit Appointment", edit_appointment_path(@appointment) %>
+  <%= link_to "Edit Appointment", edit_appointment_path(@appointment) %>
+</div>

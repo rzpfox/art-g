@@ -20,8 +20,14 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    debugger
+    @appointment = Appointment.new(processed_params)
+    @appointment.gallery = @gallery
+    @appointment.user = @gallery.user
+
+    @appointment.save
     authorize @gallery
+
+    redirect_to appointment_path(@appointment)
   end
 
   private
@@ -39,10 +45,10 @@ class AppointmentsController < ApplicationController
   end
 
   def processed_params
-    # need convertion of string into datetime
     converted_params = permited_params
-    # converted_params[:start_time] = converted_params[:start_time]
-
+    converted_params[:start_time] = DateTime.parse(converted_params[:start_time])
     converted_params[:confirmed] = false
+
+    converted_params
   end
 end
