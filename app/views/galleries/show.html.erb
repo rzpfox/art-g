@@ -11,9 +11,7 @@
       <% end %>
       <% if policy(@gallery).destroy? %>
       <p>
-          <%= link_to "Delist your Gallery", gallery_path(@gallery),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
+          <%= link_to "Delist your Gallery", gallery_path(@gallery), method: :delete, data: { confirm: "Are you sure?" } %>
       </p>
       <% end %>
   </div>
@@ -53,12 +51,13 @@
   </div>
 
 
-<div
-  id="map"
-  style="width: 60%;
-  height: 600px;"
-  data-marker="<%= @marker.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
-
+  <div
+    id="map"
+    style="width: 60%;
+    height: 600px;"
+    data-marker="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= Rails.application.secrets.mapbox_token %>"
+  ></div>
 </div>
+
+
