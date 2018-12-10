@@ -1,48 +1,52 @@
-<div class="container">
-  <div class="gallery_name">
-      <h1><%= @gallery.name.capitalize %></h1>
-  </div>
+<div class="gallery">
   <div>
-      <%= cl_image_tag @gallery.photo, height: 100, width: 100, crop: :fill %>
-      <p>
-          <% if policy(@gallery).edit?%>
-          <%= link_to "Make Changes to your Gallery", edit_gallery_path(@gallery) %>
-      </p>
-      <% end %>
-      <% if policy(@gallery).destroy? %>
-      <p>
-          <%= link_to "Delist your Gallery", gallery_path(@gallery),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-      </p>
-      <% end %>
-  </div>
-  <i class="far fa-address-card"></i>
-  <div class="gallery_contact_name">
-      <p>
-          <%= @gallery.contact_name %>
-      </p>
-  </div>
-  <div class="gallery_address">
-      <p>
-          <%= @gallery.address %>
-      </p>
-  </div>
-  <div class="gallery_phone_number">
-      <p><i class="fas fa-phone">  <%= @gallery.phone_number %></i></p>
+    <h1><strong><%= @gallery.name.capitalize %></strong></h1>
+
+    <p class="gallery_contact_name"><i class="far fa-address-card">
+      <%= @gallery.contact_name %></i></p>
+
+    <p class="gallery_phone_number"><i class="fas fa-phone"><%= @gallery.phone_number %></i></p>
+
+    <p><%= link_to "Add Appointment", new_gallery_appointment_path(@gallery), class: "btn btn-primary btn-m" %></p>
+
+    <p><% if policy(@gallery).edit?%>
+        <%= link_to "Make Changes to your Gallery", edit_gallery_path(@gallery), class: "btn btn-primary btn-m" %></p>
+       <% end %>
+
+
+
+    <% if policy(@gallery).destroy? %>
+    <p><%= link_to "Delist your Gallery", gallery_path(@gallery), class: "btn btn-danger btn-m", method: :delete,data: { confirm: "Are you sure?" } %></p>
+    <% end %>
   </div>
 
-  <% if policy(@gallery).destroy? %>
-  <!-- since .new? returns true for every user, use .destroy? to ultilize-->
-  <!-- record.user == current_user policy of gallery -->
-    <%= link_to "Add Artist", new_artist_path(@gallery), class: "btn btn-primary btn-m" %>
-  <% end %>
+  <div>
+    <p><%= cl_image_tag @gallery.photo, height: 300, width: 400, crop: :fill, class: "gallery-photo" %></p>
 
-  <% if policy(@gallery).destroy? %>
-    <%= link_to "Add Painting", new_gallery_painting_path(@gallery), class: "btn btn-primary btn-m" %>
-  <% end %>
+    <% if policy(@gallery).destroy? %>
+    <!-- since .new? returns true for every user, use .destroy? to ultilize-->
+    <!-- record.user == current_user policy of gallery -->
+      <p><%= link_to "Add Artist", new_artist_path(@gallery), class: "btn btn-primary btn-m gallery-add-btn" %>
+    <% end %>
 
-  <%= link_to "Add Appointment", new_gallery_appointment_path(@gallery), class: "btn btn-primary btn-m" %>
+    <% if policy(@gallery).destroy? %>
+      <%= link_to "Add Painting", new_gallery_painting_path(@gallery), class: "btn btn-primary btn-m gallery-add-btn" %></p>
+    <% end %>
+  </div>
+
+  <div class="map">
+    <p
+    id="map"
+    data-marker="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></p>
+
+    <p class="gallery_address"><%= @gallery.address %></p>
+
+  </div>
+</div>
+
+
+
 
   <div class="container">
       <div class="row">
@@ -53,12 +57,6 @@
   </div>
 
 
-<div
-  id="map"
-  style="width: 60%;
-  height: 600px;"
-  data-marker="<%= @marker.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+
 
 </div>

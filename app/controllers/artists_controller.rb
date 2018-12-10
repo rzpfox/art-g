@@ -1,14 +1,14 @@
 class ArtistsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :all]
 
   before_action :locate_paintings, only: :show
 
   def index
-    @artists = policy_scope(Artist).order(created_at: :asc)
+    @artists = policy_scope(Artist).order("RANDOM()")
   end
 
   def all
-    @artists = Artist.all.order(created_at: :asc)
+    @artists = Artist.all.order("RANDOM()")
     authorize @artists, :all?
   end
 

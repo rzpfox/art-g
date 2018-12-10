@@ -26,8 +26,8 @@
           </div>
         </p>
 
-      <% else result.searchable_type == 'Artist'%>
-        <p><% artist_search_result = result.searchable %></p>
+      <% elsif result.searchable_type == 'Artist'%>
+        <p><% artist_search_result = result.searchable %>
           <div class="col-xs-8, col-sm-6, col-md-4">
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= artist_search_result.photo %>');">
               <%= link_to artist_search_result do %>
@@ -36,6 +36,32 @@
               <% end %>
             </div>
           </div>
+        </p>
+
+      <% elsif result.searchable_type == 'Exhibition'%>
+        <p><% exhibition_search_result = result.searchable %>
+          <div class="col-xs-8, col-sm-6, col-md-4">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= exhibition_search_result.photo %>');">
+              <%= link_to exhibition_search_result do %>
+                <span class="card-title">Exhibition</span>
+                <span class="card-info"><%= exhibition_search_result.title.capitalize %></span>
+              <% end %>
+            </div>
+          </div>
+        </p>
+
+      <% else result.searchable_type == 'Sample'%>
+        <p><% sample_search_result = result.searchable %>
+          <div class="col-xs-8, col-sm-6, col-md-4">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= sample_search_result.photo %>');">
+              <%= link_to sample_search_result do %>
+                <span class="card-title">Exhibition Sample</span>
+                <span class="card-info"><%= sample_search_result.title.capitalize %></span>
+              <% end %>
+            </div>
+          </div>
+        </p>
+
       <% end %>
     <% end %>
   </div>

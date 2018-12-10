@@ -1,0 +1,29 @@
+.artist {
+  padding: 10px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+.artist-photo {
+  padding-left:30px;
+}
+
+.artist-name {
+  width: 1000px;
+}
+
+.artist-bio {
+  width : 1000px;
+}
+
+#painting-title-upcase {
+  color:white;
+}
+
+.artist-photograph {
+  height: 500px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.5)
+}
