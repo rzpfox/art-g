@@ -6,5 +6,9 @@
   <p><%= @appointment.visitor_name %></p>
   <p><%= @appointment.visitor_email %></p>
 
-  <%= link_to "Edit Appointment", edit_appointment_path(@appointment) %>
+  <p>Please call The <%= link_to "Gallery",gallery_path(@gallery) %> if you want to change/cancel this appointment</p>
+
+  <% if policy(@appointment).edit? %>
+  <%= link_to "Edit Appointment", edit_appointment_path(@appointment), class: "btn btn-primary btn-m" %>
+  <% end %>
 </div>

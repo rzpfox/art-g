@@ -24,7 +24,7 @@
 .gallery-card {
   padding-left:30px;
   margin-left:20px;
-  height: 250px;
+  height: 350px;
   width: 600px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
@@ -35,7 +35,9 @@
   align-items: start;
 
 }
-
+.gallery-card-name-map {
+  font-size:larger;
+}
 .card-name {
   position: absolute;
   top: 10px;
@@ -73,8 +75,17 @@
 .map {
   position: absolute;
   left: 10px;
-  top: 30px;
+  top: 45px;
   width: 200px;
   border-radius: 5%;
   height: 180px;
+}
+.fa-edit {
+  color:white;
+}
+.fa-trash-alt{
+  color:white;
+}
+.fa-plus-square{
+  color:white;
 }
