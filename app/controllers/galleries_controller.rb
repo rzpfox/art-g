@@ -1,13 +1,13 @@
 class GalleriesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :all]
 
   def index
     # @galleries = Gallery.all
-    @galleries = policy_scope(Gallery).order(created_at: :asc)
+    @galleries = policy_scope(Gallery).order("RANDOM()")
   end
 
   def all
-    @galleries = Gallery.all.order(created_at: :asc)
+    @galleries = Gallery.all.order("RANDOM()")
     authorize @galleries, :all?
   end
 

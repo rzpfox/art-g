@@ -23,7 +23,6 @@ gem "jquery-rails", "~> 4.3"
 gem 'pg_search'
 gem "geocoder"
 
-
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

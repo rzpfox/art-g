@@ -17,10 +17,41 @@
 
 @import 'pages/index';
 @import 'pages/home';
+@import 'pages/artist_show';
+@import 'pages/gallery_show';
+
+
+#site-name {
+  text-align: center;
+}
 
 .navbar-wagon {
   background-color: inherit;
   box-shadow: none;
+}
+
+.search-bar form {
+  display: flex;
+
+  input[type='text'] {
+    border-radius: 18px 0 0 18px;
+    font-size: 14px;
+    margin-top: 0;
+    padding-left: 1em;
+
+    &:focus {
+      color: black;
+      outline: none;
+    }
+  }
+
+  button[type='submit'] {
+    background-color: rgb(228, 228, 228);
+    border: none;
+    border-radius: 0 18px 18px 0;
+    color: #91989b;
+    padding-right: 0.5em;
+  }
 }
 
 .featured {
@@ -51,6 +82,10 @@
   .footer {
     flex-direction: column;
     justify-content: space-around;
+
+    .footer-copyright {
+      text-align: center;
+    }
   }
 }
 

@@ -1,4 +1,4 @@
-$(document).on("turbolinks:load", function() {
+$(function() {
   const $pickerInput = $('.date_time_picker input.date_time_picker');
   const initialValue = $pickerInput.val();
   // the 2 steps above gets the value of the input field for date_time
