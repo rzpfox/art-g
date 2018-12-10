@@ -39,3 +39,5 @@ end
 gem "cloudinary", "~> 1.10"
 
 gem "carrierwave", "~> 1.2"
+
+gem "photoswipe-rails", "~> 4.1"

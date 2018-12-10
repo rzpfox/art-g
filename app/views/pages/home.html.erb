@@ -1,5 +1,3 @@
-<h1 id="site-name">Pentimento</h1>
-
 <% if @featured_paintings == [] %>
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.4columns.org/img/column/Amor_Leonilson_Install1.jpg');">
     <div class="banner-content">
@@ -13,14 +11,17 @@
   <div class="featured paintings">
     <div class="row">
       <% @featured_paintings.each do |painting| %>
-        <%= render '/paintings/painting_card', painting: painting %>
+        <div class="col-xs-12">
+          <div class="card" style="background-image: url('<%= cl_image_path painting.photo %>');" alt="<%= painting.title %>">
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
   <div class="container">
     <div class="row">
       <% @other_paintings.each do |painting| %>
-      <%= render '/paintings/painting_card', painting: painting %>
+        <%= render '/paintings/painting_card', painting: painting %>
       <% end %>
     </div>
     <p class="btn btn-primary btn-m">
