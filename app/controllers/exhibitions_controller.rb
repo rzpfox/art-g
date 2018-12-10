@@ -1,13 +1,13 @@
 class ExhibitionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :all]
 
   def index
     # @exhibitions = Exhibition.all
-    @exhibitions = policy_scope(Exhibition).order(created_at: :asc)
+    @exhibitions = policy_scope(Exhibition).order("RANDOM()")
   end
 
   def all
-    @exhibitions = Exhibition.all.order(created_at: :asc)
+    @exhibitions = Exhibition.all.order("RANDOM()")
     authorize @exhibitions, :all?
   end
 

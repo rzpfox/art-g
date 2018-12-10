@@ -1,0 +1,22 @@
+.gallery {
+  padding: 10px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+#map {
+  width: 300px;
+  height: 200px;
+}
+
+
+.gallery-photo {
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5)
+}
+
+.gallery-add-btn {
+  margin:40px;
+}

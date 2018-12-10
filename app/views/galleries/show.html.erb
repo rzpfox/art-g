@@ -1,8 +1,6 @@
-<div class="container">
-  <div class="gallery_name">
-      <h1><%= @gallery.name.capitalize %></h1>
-  </div>
+<div class="gallery">
   <div>
+<h1><strong><%= @gallery.name.capitalize %></strong></h1>
       <%= cl_image_tag @gallery.photo, height: 100, width: 100, crop: :fill %>
       <p>
           <% if policy(@gallery).edit?%>
@@ -21,26 +19,34 @@
           <%= @gallery.contact_name %>
       </p>
   </div>
-  <div class="gallery_address">
-      <p>
-          <%= @gallery.address %>
-      </p>
+
+  <div>
+    <p><%= cl_image_tag @gallery.photo, height: 300, width: 400, crop: :fill, class: "gallery-photo" %></p>
+
+    <% if policy(@gallery).destroy? %>
+    <!-- since .new? returns true for every user, use .destroy? to ultilize-->
+    <!-- record.user == current_user policy of gallery -->
+      <p><%= link_to "Add Artist", new_artist_path(@gallery), class: "btn btn-primary btn-m gallery-add-btn" %>
+    <% end %>
+
+    <% if policy(@gallery).destroy? %>
+      <%= link_to "Add Painting", new_gallery_painting_path(@gallery), class: "btn btn-primary btn-m gallery-add-btn" %></p>
+    <% end %>
   </div>
-  <div class="gallery_phone_number">
-      <p><i class="fas fa-phone">  <%= @gallery.phone_number %></i></p>
+
+  <div class="map">
+    <p
+    id="map"
+    data-marker="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= Rails.application.secrets.mapbox_token %>"></p>
+
+    <p class="gallery_address"><%= @gallery.address %></p>
+
   </div>
+</div>
 
-  <% if policy(@gallery).destroy? %>
-  <!-- since .new? returns true for every user, use .destroy? to ultilize-->
-  <!-- record.user == current_user policy of gallery -->
-    <%= link_to "Add Artist", new_artist_path(@gallery), class: "btn btn-primary btn-m" %>
-  <% end %>
 
-  <% if policy(@gallery).destroy? %>
-    <%= link_to "Add Painting", new_gallery_painting_path(@gallery), class: "btn btn-primary btn-m" %>
-  <% end %>
 
-  <%= link_to "Add Appointment", new_gallery_appointment_path(@gallery), class: "btn btn-primary btn-m" %>
 
   <div class="container">
       <div class="row">
@@ -49,15 +55,6 @@
           <% end %>
       </div>
   </div>
-
-
-  <div
-    id="map"
-    style="width: 60%;
-    height: 600px;"
-    data-marker="<%= @marker.to_json %>"
-    data-mapbox-api-key="<%= Rails.application.secrets.mapbox_token %>"
-  ></div>
 </div>
 
 
