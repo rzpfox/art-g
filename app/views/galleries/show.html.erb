@@ -1,4 +1,7 @@
-<div class="gallery" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @gallery.photo %>');">
+<div class="gallery" >
+  <div class="bg-container">
+    <div class="bg" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @gallery.photo %>');"></div>
+  </div>
   <div class="gallery-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @gallery.photo %>');">
     <div class="gallery-card-name-map">
       <%= @gallery.name.capitalize %>
