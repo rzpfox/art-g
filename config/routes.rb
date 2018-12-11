@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/searches', to: 'searches#show'
 
 
-
+  get '/gallery_home', to: 'pages#gallery_home', as: 'gallery_home'
   get '/paintings', to: 'paintings#index', as: 'all_my_paintings'
   get '/galleries/all', to: 'galleries#all', as: 'all_galleries'
   get '/paintings/all', to: 'paintings#all', as: 'all_paintings'
