@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_12_10_072825) do
     t.string "phone_number"
     t.string "photo"
     t.bigint "user_id"
+    t.string "open_time"
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_galleries_on_user_id"

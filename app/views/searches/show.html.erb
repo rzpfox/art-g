@@ -3,7 +3,6 @@
     <% @results.each do |result| %>
       <% if result.searchable_type == 'Gallery' %>
         <p> <% gallery_search_result = result.searchable %>
-        <% gallery_search_result = result.searchable %>
           <div class="col-xs-8, col-sm-6, col-md-4">
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= gallery_search_result.photo %>');">
               <%= link_to gallery_search_result do %>
@@ -50,7 +49,7 @@
           </div>
         </p>
 
-      <% else result.searchable_type == 'Sample'%>
+      <% elsif result.searchable_type == 'Sample'%>
         <p><% sample_search_result = result.searchable %>
           <div class="col-xs-8, col-sm-6, col-md-4">
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= sample_search_result.photo %>');">
@@ -58,6 +57,18 @@
                 <span class="card-title">Exhibition Sample</span>
                 <span class="card-info"><%= sample_search_result.title.capitalize %></span>
               <% end %>
+            </div>
+          </div>
+        </p>
+      <% else result.searchable_type == 'Appointment'%>
+        <p><% appointment_search_result = result.searchable %>
+          <div class="col-xs-8, col-sm-6, col-md-4">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= result.searchable.gallery.photo %>');">
+              <%= link_to appointment_search_result do %>
+                <span class="card-title">Appointment</span>
+                <span class="appointment-card-info"><%= appointment_search_result.visitor_name %> <%= appointment_search_result.visitor_email %> <%= appointment_search_result.start_time%> @ <%= appointment_search_result.gallery.name%>
+              <% end %>
+                </span>
             </div>
           </div>
         </p>

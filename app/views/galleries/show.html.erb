@@ -1,29 +1,61 @@
-<div class="gallery-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @gallery.photo %>');">
-  <div class="gallery-card-name-map">
-    <%= @gallery.name.capitalize %>
-    <p class="map"
-      id="map"
-      data-marker="<%= @marker.to_json %>"
-      data-mapbox-api-key="<%= Rails.application.secrets.mapbox_token %>"></p>
+<div class="gallery" >
+  <div class="bg-container">
+    <div class="bg" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @gallery.photo %>');"></div>
   </div>
+  <div class="gallery-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @gallery.photo %>');">
+    <div class="gallery-card-name-map">
+      <%= @gallery.name.capitalize %>
+      <p class="map"
+        id="map"
+        data-marker="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= Rails.application.secrets.mapbox_token %>"></p>
+    </div>
 
-  <div class='gallery-card-info'>
-    <h2 class="gallery_contact_name"><%= @gallery.contact_name %></h2>
-    <p class="gallery_address"><%= @gallery.address %></p>
-    <p class="gallery_phone_number"><%= @gallery.phone_number %></p>
-    <p>
-        <% if policy(@gallery).edit?%>
-          <%= link_to edit_gallery_path(@gallery) do %>
-            <i class="far fa-edit"></i>
+    <div class='gallery-card-info'>
+      <h2 class="gallery_contact_name"><%= @gallery.contact_name %></h2>
+      <p class="gallery_address"><%= @gallery.address %></p>
+      <p class="gallery_phone_number"><%= @gallery.phone_number %></p>
+      <p>
+          <% if policy(@gallery).edit?%>
+            <%= link_to edit_gallery_path(@gallery) do %>
+              <i class="far fa-edit"> Gallery</i>
+            <% end %>
           <% end %>
-    </p>
-        <% end %>
-    <p>
-        <% if policy(@gallery).edit?%>
-          <%= link_to gallery_path(@gallery), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="far fa-trash-alt"></i>
+          <% if policy(@gallery).edit?%>
+            <%= link_to gallery_path(@gallery), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="far fa-trash-alt"> Gallery </i>
+            <% end %>
+      </p>
           <% end %>
-    </p>
-        <% end %>
+
+      <p><% if policy(@gallery).destroy? %>
+           <!-- since .new? returns true for every user, use .destroy? to ultilize -->
+          <!-- record.user == current_user policy of gallery -->
+            <%= link_to new_artist_path(@gallery) do %>
+              <i class="far fa-plus-square"> Artist </i>
+            <% end %>
+          <% end %>
+
+         <% if policy(@gallery).destroy? %>
+          <!-- since .new? returns true for every user, use .destroy? to ultilize -->
+         <!-- record.user == current_user policy of gallery -->
+           <%= link_to new_gallery_painting_path(@gallery) do %>
+             <i class="far fa-plus-square"> Painting </i>
+           <% end %>
+         <% end %>
+
+           <%= link_to new_gallery_appointment_path(@gallery) do %>
+             <i class="far fa-calendar-check"></i> Appointment </i>
+         <% end %>
+      </p>
+
+    </div>
+  </div>
+  <div class="container">
+      <div class="row">
+          <% @gallery.paintings.each do |painting| %>
+            <%= render '/paintings/painting_card', painting: painting %>
+          <% end %>
+      </div>
   </div>
 </div>
