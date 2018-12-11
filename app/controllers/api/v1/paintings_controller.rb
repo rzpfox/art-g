@@ -2,7 +2,7 @@ class Api::V1::PaintingsController < Api::V1::BaseController
   before_action :find_painting, only: :show
 
   def index
-    @paintings = Paiting.all
+    @paintings = Painting.all
     # render json: @paintings
   end
 
