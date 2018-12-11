@@ -21,6 +21,22 @@
 //   margin:40px;
 // }
 
+.gallery {
+  position: relative;
+  
+  .bg-container {
+    position: absolute;
+    filter: blur(5px);
+    height: 100vh;
+    width: 100vw;
+    
+    .bg {
+      background-size: cover;
+      height: 100vh;
+    }
+  }
+}
+
 .gallery-card {
   padding-left:30px;
   margin-left:20px;
