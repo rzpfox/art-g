@@ -2,6 +2,6 @@ Please remember to add your own Cloudinary key, and Gmail username + password to
 
 CLOUDINARY_URL=
 
-GMAIL-USERNAME=someone@gmail.com
+gmail-username=someone@gmail.com
 
-GMAIL-PASSWORD=someone'spassword
+gmail-password=someone'spassword
