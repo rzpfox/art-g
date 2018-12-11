@@ -29,22 +29,25 @@ class AppointmentsController < ApplicationController
     @appointment.token = SecureRandom.uuid
     @appointment.save
 
-    # respond_to do |format|
-    #   if @appointment.save
-    #     # Tell the UserMailer to send a welcome email after save
-    #     AppointmentMailer.with(appointment: @appointment).new_appointment_email.deliver_now
-    #     # can also use deliver_later
-
-    #     format.html { redirect_to(@appointment, notice: 'Appointment was successfully created.') }
-    #     format.json { render json: @appointment, status: :created, location: @appointment }
-    #   else
-    #     format.html { render action: 'new' }
-    #     format.json { render json: @appointment.errors, status: :unprocessable_entity }
-    #   end
-    # end
     authorize @gallery
 
-    redirect_to appointment_path(@appointment)
+    respond_to do |format|
+      if @appointment.save
+        # Tell the UserMailer to send a welcome email after save
+        AppointmentMailer.with(appointment: @appointment).new_appointment_email.deliver_now
+        # can also use deliver_later
+
+        format.html { redirect_to(@appointment, notice: 'Appointment was successfully created.') }
+        format.json { render json: @appointment, status: :created, location: @appointment }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @appointment.errors, status: :unprocessable_entity }
+      end
+    end
+
+    # redirect_to appointment_path(@appointment)
+    # the line of code above equals to:
+    # redirect_to @appointment
   end
 
   def edit
