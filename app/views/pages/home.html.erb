@@ -12,7 +12,10 @@
     <div class="row">
       <% @featured_paintings.each do |painting| %>
         <div class="col-xs-12">
-          <div class="card" style="background-image: url('<%= cl_image_path painting.photo %>');" alt="<%= painting.title %>">
+          <div class="card banner" style="background-image: url('<%= cl_image_path painting.photo %>');" alt="<%= painting.title %>">
+
+              <p><strong>Find Your Perfect Art Today!</strong></p>
+
           </div>
         </div>
       <% end %>

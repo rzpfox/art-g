@@ -56,7 +56,10 @@ class AppointmentsController < ApplicationController
   end
 
   def update
+    authorize @gallery
+    @appointment.update(permited_params)
 
+    redirect_to @appointment
   end
 
   def destroy
