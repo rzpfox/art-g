@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  config.action_mailer.default_url_options = { host: "https://pentimentoartg.herokuapp.com" }
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
@@ -86,8 +86,8 @@ Rails.application.configure do
     address: 'smtp.gmail.com',
     port: 587,
     domain: 'gmail.com',
-    user_name: ENV['gmail-username'],
-    password: ENV['gmail-password'],
+    user_name: ENV['GMAIL-USERNAME'],
+    password: ENV['GMAIL-PASSWORD'],
     authentication: 'plain',
     enable_starttls_auto: true
   }

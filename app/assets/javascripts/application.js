@@ -1,6 +1,6 @@
-//= require rails-ujs
 //= require jquery
-//= require moment
-//= require bootstrap-datetimepicker
+//= require rails-ujs
 //= require photoswipe
 //= require_tree .
+//= require moment
+//= require bootstrap-datetimepicker
