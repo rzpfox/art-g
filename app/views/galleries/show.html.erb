@@ -1,7 +1,7 @@
 <div class="gallery" >
   <div class="bg-container">
     <div class="bg" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @gallery.photo %>');"></div>
-  </div
+  </div>
   <div class="gallery-card" >
     <div class='gallery-card-info'>
       <h2 class="gallery-name"><%= @gallery.name.capitalize %></h2>
@@ -45,7 +45,7 @@
     <div class="gallery-card-map map"
         id="map"
         data-marker="<%= @marker.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" >
     </div>
   </div>
   <div class="container gallery-paintings">
