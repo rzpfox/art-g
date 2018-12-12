@@ -11,4 +11,8 @@
   <% if policy(@appointment).edit? %>
   <%= link_to "Edit Appointment", edit_appointment_path(@appointment), class: "btn btn-primary btn-m" %>
   <% end %>
+
+  <% if policy(@appointment).edit? %>
+  <p><%= link_to "Delete Appointment", appointment_path(@appointment), class: "btn btn-danger btn-m", method: :delete, data: { confirm: "Are you sure?"} %></p>
+  <% end %>
 </div>
