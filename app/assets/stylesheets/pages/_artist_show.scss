@@ -1,6 +1,5 @@
 .box {
   display: flex;
-  height: 100vh;
   justify-content: space-between;
 }
 .artist {
@@ -15,6 +14,7 @@
     flex-direction: column;
     margin: 0 auto;
     width: 70%;
+    padding-bottom:125px;
 
     .artist-avatar {
       box-shadow: 2px 2px 4px rgb(0, 0, 204);

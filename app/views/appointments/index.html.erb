@@ -1,1 +1,8 @@
 <%# show all the appointments of a gallery %>
+  <div class="container">
+      <div class="row">
+        <% @appointments.each do |appointment| %>
+          <%= render 'appointment_card', appointment: appointment %>
+        <% end %>
+      </div>
+  </div>
