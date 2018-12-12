@@ -15,7 +15,7 @@
 
 
       <%= current_user.email %>
-      <%= link_to "Gallery Owner", gallery_home_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "For Gallery Owner", gallery_home_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <div class="search-bar">
         <form action="/searches" method="post">
@@ -140,7 +140,7 @@
     </div>
     <% else %>
   <!-- When Logged Out -->
-          <%= link_to "Gallery Owner", gallery_home_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "For Gallery Owner", gallery_home_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
           <div class="search-bar">
             <form action="/searches" method="post">
