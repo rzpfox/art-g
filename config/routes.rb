@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/searches/:term', to: 'searches#show', as:'search_results'
   post '/searches', to: 'searches#show'
 
-
+  get '/appointments', to: 'appointments#index', as: 'all_my_appointments'
   get '/gallery_home', to: 'pages#gallery_home', as: 'gallery_home'
   get '/paintings', to: 'paintings#index', as: 'all_my_paintings'
   get '/galleries/all', to: 'galleries#all', as: 'all_galleries'
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :galleries do
     resources :paintings, shallow: true, except: :index
-    resources :appointments, shallow: true
+    resources :appointments, shallow: true, except: :index
   end
 
   resources :exhibitions do
