@@ -8,7 +8,7 @@
       <p class="map"
         id="map"
         data-marker="<%= @marker.to_json %>"
-        data-mapbox-api-key="<%= Rails.application.secrets.mapbox_token %>"></p>
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></p>
     </div>
 
     <div class='gallery-card-info'>

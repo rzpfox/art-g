@@ -1,9 +1,11 @@
 class AppointmentPolicy < GalleryPolicy
   class Scope < Scope
     def resolve
-      # display only appointments of the owner
-      # scope.where(user: user)
-      scope.where(user: user) if user
+      if user
+        scope.where(user: user)
+      else
+        scope.all
+      end
     end
   end
 end
