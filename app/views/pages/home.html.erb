@@ -13,17 +13,23 @@
       <% @featured_paintings.each do |painting| %>
         <div class="col-xs-12">
           <div class="card banner mySlides" style="background-image: url('<%= cl_image_path painting.photo %>');" alt="<%= painting.title %>">
-            <div class='banner-message'>
-              <p><strong><%= link_to "Find Your Perfect Art Today!", all_paintings_path, class: "home-card-link" %></strong></p>
-              <p><strong><%= link_to "Visit A Gallery Tomorrow!", all_galleries_path, class: "home-card-link"%></strong></p>
-              <p><strong><%= link_to "Checkout An Exhibition soon!", all_exhibitions_path, class: "home-card-link"%></strong></p>
-            </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
   <div class="container">
+    <div class="row row-home">
+      <div class="col-xs-8, col-sm-6, col-md-4">
+        <strong><%= link_to "Find Your Perfect Art Today!", all_paintings_path, class: "home-card-link btn btn-ml btn-dark" %></strong>
+      </div>
+      <div class="col-xs-8, col-sm-6, col-md-4">
+        <strong><%= link_to "Visit a Gallery Tomorrow!", all_galleries_path, class: "home-card-link btn btn-ml btn-dark"%></strong>
+      </div>
+      <div class="col-xs-8, col-sm-6, col-md-4">
+        <strong><%= link_to "Checkout an Exhibition Soon!", all_exhibitions_path, class: "home-card-link btn btn-ml btn-dark"%></strong>
+      </div>
+    </div>
     <div class="row">
       <% @other_paintings.each do |painting| %>
         <%= render '/paintings/painting_card', painting: painting %>
