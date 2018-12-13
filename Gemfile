@@ -22,6 +22,7 @@ gem 'webpacker'
 gem "jquery-rails", "~> 4.3"
 gem 'pg_search'
 gem "geocoder"
+gem "figaro"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -41,5 +42,3 @@ gem "cloudinary", "1.10.1.pre.rc"
 gem "carrierwave", "~> 1.2"
 
 gem "photoswipe-rails", "~> 4.1"
-
-gem "figaro", "~> 1.1"
