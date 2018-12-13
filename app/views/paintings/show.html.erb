@@ -1,6 +1,6 @@
 <div class="box">
   <div class='painting_photo'>
-    <%= cl_image_tag @painting.photo, height: 300, width: 500, crop: :fill %>
+    <%= cl_image_tag @painting.photo %>
   </div>
   <div class="painting-info">
     <h1><%= @painting.title.capitalize %></h1>
@@ -14,6 +14,6 @@
     <% if policy(@painting).edit? %>
     <p><%= link_to "Delist this painting", painting_path(@painting), class: "btn btn-danger btn-m", method: :delete, data: { confirm: "Are you sure?"} %></p>
     <% end %>
-    <h3><%= link_to "Browse the Gallery Collection",gallery_path(@gallery),class: 'painting-artist' %></h3>
+    <h3><%= link_to @painting.gallery.name, gallery_path(@gallery),class: 'painting-artist' %></h3>
   </div>
 </div>

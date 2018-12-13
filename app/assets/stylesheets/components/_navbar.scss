@@ -11,8 +11,21 @@
 }
 
 /* Logo */
+.navbar-wagon-brand:hover {
+  text-decoration: none;
+
+  .site-name {
+    color: white;
+  }
+}
+
 .navbar-wagon-brand img {
   height: 50px;
+}
+
+.navbar-wagon-brand .site-name {
+  color: black;
+  font-weight: bold;
 }
 
 /* User Avatar */
