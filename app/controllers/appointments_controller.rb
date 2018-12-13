@@ -56,14 +56,16 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    authorize @gallery
+    authorize @appointment
     @appointment.update(permited_params)
 
     redirect_to @appointment
   end
 
   def destroy
-
+    authorize @appointment
+    @appointment.destroy
+    redirect_to all_my_appointments_path
   end
 
   private

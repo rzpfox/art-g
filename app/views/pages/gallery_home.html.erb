@@ -9,9 +9,15 @@
     </div>
   </div>
   <div class="featured paintings">
-    <div class="row">
+    <div class="row ">
       <% @featured_paintings.each do |painting| %>
-        <%= render '/paintings/painting_card', painting: painting %>
+        <div class="col-xs-12 mySlides">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path painting.photo %>');">
+            <%= link_to painting, class: "card-info" do %>
+              <span><%= painting.title.capitalize %></span>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
