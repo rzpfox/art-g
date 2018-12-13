@@ -1,5 +1,5 @@
 .painting_photo {
-  flex: 0 0 60%;
+  flex: 0 0 50%;
   height: 100vh;
   padding-left: 30px;
   text-align:center;
@@ -9,6 +9,7 @@
     height: 60%;
     object-fit: contain;
     width: unset;
+    margin-top:25px;
   }
 
 }

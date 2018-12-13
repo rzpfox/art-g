@@ -1,11 +1,9 @@
 <div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "bull.png" %>
+ <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "logo.png" %>
+    <span class="site-name">Pentimento</span>
   <% end %>
-
-  <%= link_to "Pentimento", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -14,7 +12,6 @@
       <!-- Links when logged in -->
 
 
-      <%= current_user.email %>
       <%= link_to "For Gallery", gallery_home_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <div class="search-bar">
