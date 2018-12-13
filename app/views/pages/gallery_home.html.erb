@@ -1,33 +1,31 @@
-<h1 id="site-name">Pentimento</h1>
-
-  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.4columns.org/img/column/Amor_Leonilson_Install1.jpg');">
-    <div class="banner-content">
-      <h1>Showcase your Gallery Today!</h1>
-      <p class="btn btn-primary btn-m">
-        <%= link_to "List Your Gallery and Art", new_gallery_path(@gallery) %>
-      </p>
-    </div>
-  </div>
-  <div class="featured paintings">
-    <div class="row ">
-      <% @featured_paintings.each do |painting| %>
-        <div class="col-xs-12 mySlides">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path painting.photo %>');">
-            <%= link_to painting, class: "card-info" do %>
-              <span><%= painting.title.capitalize %></span>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <% @other_paintings.each do |painting| %>
-      <%= render '/paintings/painting_card', painting: painting %>
-      <% end %>
-    </div>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.4columns.org/img/column/Amor_Leonilson_Install1.jpg');">
+  <div class="banner-content">
+    <h1>Showcase your Gallery Today!</h1>
     <p class="btn btn-primary btn-m">
       <%= link_to "List Your Gallery and Art", new_gallery_path(@gallery) %>
     </p>
   </div>
+</div>
+<div class="featured paintings">
+  <div class="row ">
+    <% @featured_paintings.each do |painting| %>
+    <div class="col-xs-12 mySlides">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path painting.photo %>');">
+        <%= link_to painting, class: "card-info" do %>
+        <span><%= painting.title.capitalize %></span>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <% @other_paintings.each do |painting| %>
+    <%= render '/paintings/painting_card', painting: painting %>
+    <% end %>
+  </div>
+  <p class="btn btn-primary btn-m">
+    <%= link_to "List Your Gallery and Art", new_gallery_path(@gallery) %>
+  </p>
+</div>
