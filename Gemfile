@@ -22,6 +22,7 @@ gem 'webpacker'
 gem "jquery-rails", "~> 4.3"
 gem 'pg_search'
 gem "geocoder"
+gem "figaro"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
