@@ -13,5 +13,7 @@
     <%= f.input :value,collection: Painting::VALUE, class: "value-box" %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
-    <%= f.submit mode, class: "btn btn-primary" %>
+    <div class="form-button">
+        <%= f.submit mode, class: "btn btn-primary" %>
+    </div>
 <% end %>
