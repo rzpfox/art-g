@@ -1,6 +1,6 @@
 <div class="box">
   <div class='painting_photo'>
-    <%= cl_image_tag @painting.photo, height: 300, width: 500, crop: :fill %>
+    <%= cl_image_tag @painting.photo %>
   </div>
   <div class="painting-info">
     <h1><%= @painting.title.capitalize %></h1>
