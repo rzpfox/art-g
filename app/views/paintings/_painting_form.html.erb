@@ -1,7 +1,8 @@
 <%= simple_form_for [gallery, painting] do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :featured, as: :boolean, checked_value: true, unchecked_value: false %>
+
+    <%= f.input :featured, as: :boolean %>
 
     <% if mode == "Edit Painting" %>
       <%= f.input :artist_id, as: :hidden %>
