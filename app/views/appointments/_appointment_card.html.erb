@@ -1,8 +1,8 @@
 <div class="col-xs-8, col-sm-6, col-md-4">
   <!-- the link element would  -->
-    <div class="card">
-      <%= link_to appointment, class: "card-info" do %>
-        <span><%= appointment.gallery.name %>
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= appointment.gallery.photo %>');">
+      <%= link_to appointment do %>
+        <span class='appointment-card-info'><%= appointment.gallery.name %>
           <br>
           <%= appointment.visitor_name %>
           <br>

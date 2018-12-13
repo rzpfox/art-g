@@ -249,7 +249,7 @@ DEPENDENCIES
   cloudinary (= 1.10.1.pre.rc)
   devise
   dotenv-rails
-  figaro (~> 1.1)
+  figaro
   font-awesome-sass (~> 5.0.9)
   geocoder
   jbuilder (~> 2.0)
