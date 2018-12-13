@@ -10,6 +10,8 @@
         <%#= f.input :confirmed, as: :boolean, checked_value: true, unchecked_value: false %>
         <!-- confirmed by whom, the gallery_owner, maybe? -->
 
-        <%= f.submit mode, class: "btn btn-primary btn-md" %>
+        <div class="form-button">
+            <%= f.submit mode, class: "btn btn-primary btn-md" %>
+        </div>
 
       <% end %>
