@@ -1,34 +1,10 @@
-// .gallery {
-//   padding: 10px;
-//   display: flex;
-//   align-items: start;
-//   justify-content: space-between;
-// }
-
-// #map {
-//   width: 300px;
-//   height: 200px;
-// }
-
-
-// .gallery-photo {
-//     object-fit: cover;
-//     border-radius: 2px;
-//     box-shadow: 2px 2px 4px rgba(0,0,0,0.5)
-// }
-
-// .gallery-add-btn {
-//   margin:40px;
-// }
-
 .gallery {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  position: relative;
 
   .bg-container {
-    position: absolute;
+    position: fixed;
     filter: blur(5px);
     height: 100vh;
     width: 100vw;
@@ -72,47 +48,6 @@
   }
 }
 
-// .gallery-card {
-//   align-items: start;
-//   background-position: center;
-//   background-size: cover !important;
-//   border-radius: 8px;
-//   box-shadow: 4px 4px 12px rgba(0,0,0, 0.4);
-//   color: white;
-//   display:flex;
-//   height: 350px;
-//   margin-left:20px;
-//   margin-top: 1em;
-//   padding-left:30px;
-//   position: absolute;
-//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-//   width: 600px;
-// }
-
-// .gallery-card-name-map {
-//   font-size:larger;
-// }
-// .card-name {
-//   position: absolute;
-//   top: 10px;
-//   left: 20px;
-//   font-size: 15px;
-//   text-transform: uppercase;
-// }
-// .gallery-card-info {
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-// }
-// .card-description h2 {
-//   font-size: 24px;
-// }
-// .card-description p {
-//   font-size: 14px;
-//   opacity: 0.7;
-//   font-weight: lighter;
-// }
-
 .card-link {
   position: absolute;
   top: 0;
@@ -129,7 +64,6 @@
 }
 
 .map {
-  position: absolute;
   width: 200px;
   border-radius: 5%;
   height: 180px;

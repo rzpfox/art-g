@@ -45,7 +45,7 @@
     <div class="gallery-card-map map"
         id="map"
         data-marker="<%= @marker.to_json %>"
-        data-mapbox-api-key="<%= Rails.application.secrets.mapbox_token %>">
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" >
     </div>
   </div>
   <div class="container gallery-paintings">
