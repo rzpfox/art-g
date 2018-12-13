@@ -1,1 +1,7 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Please remember to add your own Cloudinary key, and Gmail username + password to `.env` in the following format
+
+CLOUDINARY_URL=
+
+gmail-username=someone@gmail.com
+
+gmail-password=someone'spassword

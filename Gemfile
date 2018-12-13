@@ -37,8 +37,10 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem "cloudinary", "~> 1.10"
+gem "cloudinary", "1.10.1.pre.rc"
 
 gem "carrierwave", "~> 1.2"
 
 gem "photoswipe-rails", "~> 4.1"
+
+gem "figaro", "~> 1.1"
