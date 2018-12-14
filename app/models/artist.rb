@@ -3,6 +3,7 @@ class Artist < ApplicationRecord
   has_many :paintings, dependent: :destroy
   validates :name, presence: true
   validates :bio, presence: true, uniqueness: true
+  validates :photo, presence: true
   mount_uploader :photo, PhotoUploader
 
   include PgSearch

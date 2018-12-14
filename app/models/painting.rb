@@ -6,6 +6,7 @@ class Painting < ApplicationRecord
   validates :artist, presence: true
   validates :status, presence: true, inclusion: { in: STATUS }
   validates :value, presence: true, inclusion: { in: VALUE}
+  validates :photo, presence: true
 
   belongs_to :user
 
