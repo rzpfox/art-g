@@ -4,21 +4,17 @@
     <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-linkedin"></i></a>
-    <i class="fab fa-weixin" id='myBtn'></i>
+    <i class="fab fa-weixin" id="wechat-btn">
     <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p><%= image_tag 'wechat.jpg' %></p>
-      </div>
-
-    </div>
+        <div id="wechat-qr-containter" class="wechat-qr-containter" >
+          <!-- Modal content -->
+          <div class="wechat-qr" style="background-image: url('<%= asset_path "wechat" %>');">
+          </div>
+        </div>
+    </i>
 
   </div>
   <div class="footer-copyright">
-    <br />
-    © 2018 Pentimento Co. Ltd.All rights reserved.
+    © 2018 Pentimento Co. Ltd. <br />All rights reserved.
   </div>
 </div>
