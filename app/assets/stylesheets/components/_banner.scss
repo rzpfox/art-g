@@ -30,4 +30,8 @@
 
 .banner-home {
   opacity: 1;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
