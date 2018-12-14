@@ -4,7 +4,7 @@
   </div>
   <div class="painting-info">
     <h1><%= @painting.title.capitalize %></h1>
-    <p><strong><%= link_to "By " + @painting.artist.name.capitalize,artist_path(@gallery), class: 'painting-artist' %></strong></p>
+    <p>By <strong><%= link_to @painting.artist.name.capitalize, artist_path(@painting.artist), class: 'painting-artist' %></strong></p>
     <p><%= @painting.description %></p>
     <p><%= @painting.status %></p>
     <p><%= @painting.value %> Value</p>
