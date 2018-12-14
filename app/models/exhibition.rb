@@ -4,6 +4,7 @@ class Exhibition < ApplicationRecord
   validates :title, presence: true
   validates :location, presence: true
   validates :description, presence: true
+  validates :photo, presence: true
   mount_uploader :photo, PhotoUploader
   include PgSearch
   multisearchable :against => [:title, :location, :description]
