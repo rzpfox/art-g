@@ -90,7 +90,7 @@ class PaintingsController < ApplicationController
   end
 
   def locate_existing_artists
-    @existing_artists = Artist.all
+    @existing_artists = Artist.where(user_id: current_user.id).order(name: :asc)
   end
 
   def locate_painting
