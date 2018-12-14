@@ -1,11 +1,9 @@
 <div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "bull.png" %>
+ <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "logo.png" %>
+    <span class="site-name">Pentimento</span>
   <% end %>
-
-  <%= link_to "Pentimento", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -14,8 +12,7 @@
       <!-- Links when logged in -->
 
 
-      <%= current_user.email %>
-      <%= link_to "Gallery Owner", gallery_home_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "For Gallery / Indie Artists", gallery_home_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <div class="search-bar">
         <form action="/searches" method="post">
@@ -103,16 +100,11 @@
       <!-- Login Drop Down Menu-->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%=  image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%=  image_tag "bull.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to edit_user_registration_path do %>
                 <i class="fa fa-user"></i> <%= t(".edit", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
             </li>
             <li>
@@ -145,7 +137,7 @@
     </div>
     <% else %>
   <!-- When Logged Out -->
-          <%= link_to "Gallery Owner", gallery_home_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "For Gallery", gallery_home_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
           <div class="search-bar">
             <form action="/searches" method="post">
